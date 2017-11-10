@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login/Registration</title>
+</head>
+<body>
+<h1>Welcome!</h1>
+{% if messages %}
+    {% for message in messages %}
+    <h1 style="background-color: red">{{ message }}</h1>
+ 	{% endfor %}
+{% endif %}
+<div style="vertical-align: top; width: 400px; display: inline-block; border: 1px solid black;font-size: 20px; margin: 10px;padding: 10px;">
+	<h1>Register</h1>
+	<form action="/register" method="post">
+	{% csrf_token %}
+		Name:<input type="text" name="name"><br>
+		Username:<input type="text" name="username"><br>
+		Password:<input type="text" name="pw"><br>
+		<p>*Password should be at least 8 characters</p>
+		Confirm PW:<input type="text" name="c_pw"><br>
+		Date Hired:<input type="Date" name="h_date">
+		<input type="submit" value="Regiter">
+	</form>
+</div>
+<div style="width: 400px; display: inline-block; border: 1px solid black;font-size: 20px;margin: 10px;padding: 10px;">
+	<h1>Log In</h1>
+	<form action="/login" method="post">
+	{% csrf_token %}
+		Username:<input type="text" name="username"><br>
+		Password:<input type="text" name="pw"><br>
+		<input type="submit" value="Login">
+	</form>
+</div>
+
+</body>
+</html>
