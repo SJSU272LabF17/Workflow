@@ -45,6 +45,14 @@ def logout(request):
     request.session['user_id'] = None
     return redirect('/main')
 
+# def dashboard_1(request):
+#     this_user = User.objects.filter(id=request.session['user_id']).first()
+#     context = {
+#     'user': this_user,
+#     'items': Item.objects.all()
+#     }
+#     return render(request, 'first_app/dashboard_1.html', context)
+
 def dashboard(request):
     this_user = User.objects.filter(id=request.session['user_id']).first()
     context = {
@@ -54,7 +62,7 @@ def dashboard(request):
     return render(request, 'first_app/dashboard.html', context)
 
 def create_new(request):
-    return render(request, 'first_app/create_item.html')
+    return render(request, 'first_app/newChecklist.html')
 
 def create_process(request):
     name = request.POST.get('name', False)

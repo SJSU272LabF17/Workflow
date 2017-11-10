@@ -1,52 +1,44 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title>My Wish List</title>
-</head>
-<body>
-
-<a href="/logout">Logout</a>
-
-<h1>Hello, {{user.name}}</h1>
-
-<p>Your Wish List:</p>
-<table>
-	<th>Item</th>
-	<th>Added by</th>
-	<th>Date Added</th>
-	<th>Action</th>
-	{% for item in user.wished_items.all %}
-	<tr>
-		<td><a href="wish_items/{{item.id}}">{{item.name}}</a></td>
-		<td>{{item.author.name}}</td>
-		<td>{{item.created_at|date:"F d Y" }}</td>
-		{% if item.author == user %}
-		<td><a href="/delete_item/{{item.id}}">Delete</a></td>
-		{% else %}
-		<td><a href="/remove_wish/{{item.id}}">Remove from my Wishlist</a></td>
-		{% endif %}
-	</tr>
-	{% endfor %}
-</table>
-
-<p>Other User's Wish List:</p>
-<table>
-	<th>Item</th>
-	<th>Added by</th>
-	<th>Date Added</th>
-	<th>Action</th>
-	{% for item in items %}
-	{% if user not in item.wished_users.all %}
-	<tr>
-		<td><a href="wish_items/{{item.id}}">{{item.name}}</a></td>
-		<td>{{item.author.name}}</td>
-		<td>{{item.created_at}}</td>
-		<td><a href="/add_wish/{{item.id}}">Add to my Wishlist</a></td>
-		{% endif %}
-	</tr>
-	{% endfor %}
-</table>
-<br>
-<a href="/wish_items/create">Add Item</a>
-</body>
+  {% load static %}
+<link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
+<div id="container">
+    <!-- <h1>Hello, {{user.name}}</h1> -->
+  <header>
+    <ul>
+      <li><a href='Home.html'>Home</a></li>
+      <li><a>About</a>
+        <ul>
+          <li><a href='Project.html'>  Project  </a></li>
+          <li><a href='Contributors.html'>  Contributors  </a></li>
+        </ul>
+      </li>
+      <li><a href='Checklists.html'>Checklists</a>
+        <ul>
+          <li><a href='checklists/create'>  Create New  </a></li>
+          <li><a href='SavedChecklist.html'>  Saved  </a></li>
+        </ul>
+      </li>
+      <li><a href='Contact.html'>Contact</a></li>
+      {% if user %}
+      <li><a>Account</a>
+        <ul>
+          <li><a href='logout'>Sign Out</a></li>
+          <li><a href='ChngPswd.html'>Change Password</a></li>
+        </ul>
+      </li>
+      {% else %}
+      <li><a href='main'>Login</a></li>      
+      {% endif %}
+    </ul>
+  </header>
+  <div id="main">
+    <div id="column1">
+      Column 1
+    </div>
+    <div id="column2">Column 2</div>
+  </div>
+  <footer>
+    Project Title: Process 9 <br> Description: CmPE 272 - Project Team 9 - Process WorkFlow Automation
+  </footer>
+</div>
 </html>
