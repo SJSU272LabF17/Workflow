@@ -1,1 +1,150 @@
-This is New Checklist Page
+<!DOCTYPE html>
+<html>
+<link href='style.css' rel='stylesheet'>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <script>
+    function toggleContainer(value) {
+      $(".toHideContainer").hide();
+      if (value == "short_opt") {
+        $("#short_div1").show();
+      } else if (value == "long_opt") {
+        $("#long_div1").show();
+      } else if (value == "multi_opt") {
+        $("#multi_div1").show();
+      } else if (value == "check_opt") {
+        $("#check_div1").show();
+      } else if (value == "dropdown_opt") {
+        $("#dropdown_div1").show();
+      } else if (value == "date_opt") {
+        $("#date_div1").show();
+      }
+    }
+  </script>
+  <div id="container">
+    <header>
+      <ul>
+        <li><a href='Home.html'>Home</a></li>
+        <li><a>About</a>
+          <ul>
+            <li><a href='Project.html'>  Project  </a></li>
+            <li><a href='Contributors.html'>  Contributors  </a></li>
+          </ul>
+        </li>
+        <li><a href='Checklists.html'>Checklists</a>
+          <ul>
+            <li><a href='SavedChecklist.html'>  Saved  </a></li>
+          </ul>
+        </li>
+        <li><a href='Contact.html'>Contact</a></li>
+        <li><a>Account</a>
+          <ul>
+            <li><a href='Home.html'>Sign Out</a></li>
+            <li><a href='ChngPswd.html'>Change Password</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <div id="main">
+      <div id="column1">
+        <center>
+          <p>
+            <h1>Create Your Own Checklist</h1></p>
+          <br>
+          <form>
+            <select onchange="toggleContainer(this.value)">
+            <option>Select Any One</option>
+            <option value="short_opt">Short Texts</option>
+            <option value="long_opt">Long Texts</option>
+            <option value="multi_opt">Multiple Choice</option>
+            <option value="check_opt">Check Box</option>
+            <option value="dropdown_opt">Drop Downs</option>
+            <option value="date_opt">Date</option>
+          </select>
+          </form>
+          <div id="short_div1" class="toHideContainer" style="display: none">
+            <!-- Short Texts:-->
+            *****Short Texts******
+            <br> Enter the details below: <br> (* : mandatory fields) <br> Title*: <input type="text" name="short_title">
+            <br>Description: <br> <textarea rows="10" cols="50" name="short_des"> </textarea>
+            <br>
+            <input type="button" value="Create" name="short_ct">
+            <input type="button" value="Clear" name="short_clr">
+            <input type="button" value="Delete" name="short_del">
+            <br>
+          </div>
+          <div id="long_div1" class="toHideContainer" style="display: none">
+            <!-- Long Texts:  -->
+            *****Long Texts******
+            <br> Enter the details below: <br> (* : mandatory fields) <br> Title: <input type="text" name="long_title">
+            <br>Description: <br> <textarea rows="10" cols="50" name="long_des"> </textarea>
+            <br>
+            <input type="button" value="Create" name="long_ct">
+            <input type="button" value="Clear" name="long_clr">
+            <input type="button" value="Delete" name="long_del">
+            <br>
+          </div>
+          <div id="multi_div1" class="toHideContainer" style="display: none">
+            <!-- Multiple Choice:  -->
+            *****Multiple Choice******
+            <br> Enter the details below:
+            <br> Title*: <input type="text" name="multi_title">
+            <br>
+            <input type="button" value="Create" name="multi_ct">
+            <input type="button" value="Clear" name="multi_clr">
+            <input type="button" value="Delete" name="multi_del">
+            <br>
+          </div>
+          <div id="check_div1" class="toHideContainer" style="display: none">
+            <!-- Check Box Choice:  -->
+            *****CheckBox Choice******
+            <br> Enter the details below:
+            <br> Title*: <input type="text" name="check_title">
+            <br>
+            <input type="button" value="Create" name="check_ct">
+            <input type="button" value="Clear" name="check_clr">
+            <input type="button" value="Delete" name="check_del">
+            <br>
+          </div>
+          <div id="dropdown_div1" class="toHideContainer" style="display: none">
+            <!-- Drop Downs:  -->
+            *****Drop Downs******
+            <br> Enter the details below:
+            <br> Title*: <input type="text" name="dropdown_title">
+            <br>
+            <input type="button" value="Create" name="dropdown_ct">
+            <input type="button" value="Clear" name="dropdown_clr">
+            <input type="button" value="Delete" name="dropdown_del">
+            <br>
+          </div>
+          <div id="date_div1" class="toHideContainer" style="display: none">
+            <!-- Date:  -->
+            *****Date******
+            <br> Enter the details below:
+            <br> Title: <input type="text" name="date_title">
+            <br>Description: <br> <textarea rows="10" cols="50" name="long_des"> </textarea>
+            <br>
+            <input type="button" value="Create" name="date_ct">
+            <input type="button" value="Clear" name="date_clr">
+            <input type="button" value="Delete" name="date_del">
+            <br>
+          </div>
+        </center>
+
+      </div>
+      <div id="column2">Column 2</div>
+    </div>
+    <footer>
+      Project Title: Process 9 <br> Description: CmPE 272 - Project Team 9 - Process WorkFlow Automation
+    </footer>
+  </div>
+
+
+
+</body>
+
+</html>
