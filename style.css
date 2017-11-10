@@ -19,6 +19,10 @@ div #container{
   background-color:#b3ffff;
 }
 
+.toHideContainer {
+    padding: 0 25px 0 30px;
+}
+
 #column2{
   width: 1700px;
   margin-left: 400px;
