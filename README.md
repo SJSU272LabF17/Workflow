@@ -11,9 +11,9 @@ Instructions
 
 Architecture - MTV
 
-Model(apps/first_app/models.py): builds database tables and handles all interaction with the database. It's now using sqlite for development and data is stroed locally in app/db.sqlite3 file. Mysql will be used to replace sqlite for final deployment. 
-Templates(apps/first_app/templates): are served in their complete form to the client with all the html template files. Images and css stylesheets are located in apps/first_app/static folder.
-Views((apps/first_app/views.py)): get the right data for the right route delivered in the right form. Views handle the data we deliver to the user to view. Routes file which lists urls and the corresponding functions in the vews to run is located at apps/first_app/urls.py.
+1. Model(apps/first_app/models.py): builds database tables and handles all interaction with the database. It's now using sqlite for development and data is stroed locally in app/db.sqlite3 file. Mysql will be used to replace sqlite for final deployment. 
+2. Templates(apps/first_app/templates): are served in their complete form to the client with all the html template files. Images and css stylesheets are located in apps/first_app/static folder.
+3. Views((apps/first_app/views.py)): get the right data for the right route delivered in the right form. Views handle the data we deliver to the user to view. Routes file which lists urls and the corresponding functions in the vews to run is located at apps/first_app/urls.py.
 
 
 
