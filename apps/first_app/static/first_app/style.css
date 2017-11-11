@@ -19,6 +19,41 @@ div #container{
   background-color:#b3ffff;
 }
 
+#main_homesignout
+{
+  min-height:720px;
+  background: url('processimage.png');
+  background-size: cover;
+  overflow: hidden;
+}
+#main_home{
+  min-height:720px;
+  background: url('processimage.png');
+  background-size: cover;
+  overflow: hidden;
+}
+
+#chngpswd1{
+  width: 570px;
+  float:left;
+  min-height:500px;
+  color: Black;
+  margin-left: 430px;
+  margin-top: 100px;
+  background-color:white;
+}
+#chngpswd_submit1{
+    width: 20em;  height: 50em;
+}
+#chngpswd_clr1{
+    width: 10em;  height: 10em;
+}
+#main_chngpswd{
+  min-height:726px;
+    color: Black;
+  background-color:#b3ffff;
+}
+
 .toHideContainer {
     padding: 0 25px 0 30px;
 }
@@ -35,6 +70,7 @@ div #container{
 header{
   background-color: black;
   min-height: 50px;
+  text-indent: 12px;
 }
 
 #main{

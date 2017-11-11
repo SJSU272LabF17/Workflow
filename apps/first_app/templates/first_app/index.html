@@ -17,9 +17,9 @@
 	{% csrf_token %}
 		Name:<input type="text" name="name"><br>
 		Username:<input type="text" name="username"><br>
-		Password:<input type="text" name="pw"><br>
+		Password:<input type="password" name="pw"><br>
 		<p>*Password should be at least 8 characters</p>
-		Confirm PW:<input type="text" name="c_pw"><br>
+		Confirm PW:<input type="password" name="c_pw"><br>
 		Date Hired:<input type="Date" name="h_date">
 		<input type="submit" value="Regiter">
 	</form>
@@ -29,11 +29,11 @@
 	<form action="/login" method="post">
 	{% csrf_token %}
 		Username:<input type="text" name="username"><br>
-		Password:<input type="text" name="pw"><br>
+		Password:<input type="password" name="pw"><br>
 		<input type="submit" value="Login">
 	</form>
 </div>
 
-<h3><a href="dashboard">Skip for now, just want to try out!</a></h3>
+<h3><a href="/">Skip for now, just want to try out!</a></h3>
 </body>
 </html>
