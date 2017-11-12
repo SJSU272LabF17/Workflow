@@ -26,6 +26,7 @@ div #container{
   min-height:720px;
   background-size: cover;
   overflow: hidden;
+  background-color: white;
 }
 
 #chngpswd1{
@@ -71,6 +72,8 @@ div #container{
   margin-left: 0px;
   background-color:#001a33;
 }
+
+
 #img_home_2{
   width: 1700px;
   float:left;
@@ -116,7 +119,7 @@ div #container{
   float:left;
   min-height:220px;
   color: grey;
-  margin-top: 40px;
+  margin-top: 50px;
   text-align: center;
   background-color:white;
 }
@@ -154,24 +157,61 @@ div #container{
 #steps_home{
   width: 1420px;
   float:left;
-  min-height:550px;
+  min-height:500px;
   color: #000066;
   margin-top: 0px;
   text-align: center;
   background-color:white;
 }
 
+#login_home{
+  width: 1420px;
+  float:left;
+  min-height:300px;
+  color: White;
+  margin-left: 0px;
+  background-color:#ff6666;
+  text-align: center;
+}
+input#emailhome
+{
+  min-width: 350px;
+  min-height:58px;
+  font-family: Lucida Handwriting;
+  font-size: 20px;
+  padding-left: 10px;
+  color: grey;
+}
+
+input#submithome {
+    width: 170px;
+    font-family: Lucida Handwriting;
+    font-size: 20px;
+    color: #003366;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 40px;
+    margin-right: 20px;
+    background-color: white;
+
+}
+#logintag{
+    font-size: 40px;
+    font-family:Comic Sans MS;
+    margin-top: 60px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
 #tag_h1{
     font-family:Comic Sans MS;
 }
-
 
 header{
   background-color: white;
   min-height: 50px;
   text-indent: 1px;
   color: white;
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 12px;
 }
 
@@ -187,7 +227,7 @@ footer{
   margin-top: 10px;
   background-color: white;
   min-height: 50px;
-  font-size: 15px;
+  font-size: 20px;
   color:#666699;
 }
 
