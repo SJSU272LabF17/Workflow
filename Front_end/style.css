@@ -1,8 +1,5 @@
 body{
-  background-color: black;
-  font-family: sans-serif;
-  color: white;
-  background-color: black;
+  background-color: white;
   opacity: 80;
 }
 
@@ -15,20 +12,18 @@ div #container{
   width: 400px;
   float:left;
   min-height:726px;
-    color: Black;
+  color: Black;
   background-color:#b3ffff;
 }
 
 #main_homesignout
 {
   min-height:720px;
-  background: url('processimage.png');
   background-size: cover;
   overflow: hidden;
 }
 #main_home{
   min-height:720px;
-  background: url('processimage.png');
   background-size: cover;
   overflow: hidden;
 }
@@ -50,8 +45,9 @@ div #container{
 }
 #main_chngpswd{
   min-height:726px;
-    color: Black;
-  background-color:#b3ffff;
+  background: url('processimage.png');
+  background-size: cover;
+  overflow: hidden;
 }
 
 .toHideContainer {
@@ -67,15 +63,121 @@ div #container{
   background-color:white;
 }
 
+#img_home{
+  width: 1700px;
+  float:left;
+  min-height:450px;
+  color: Black;
+  margin-left: 0px;
+  background-color:#001a33;
+}
+#img_home_2{
+  width: 1700px;
+  float:left;
+  min-height:450px;
+  color: Black;
+  margin-left: 320px;
+  background-image: url('autoimg.jpg');
+  background-size:contain;
+}
+
+#step1img{
+  width: 150px;
+  float:left;
+  min-height:150px;
+  margin-left: 103px;
+  background-image: url('step_1.png');
+  background-size:contain;
+}
+
+#step3img{
+  width: 150px;
+  float:left;
+  min-height:150px;
+  margin-left: 100px;
+  margin-top: 10px;
+  background-image: url('step_3.jpg');
+  background-size:cover;
+}
+
+
+#step2img{
+  width: 110px;
+  float:left;
+  min-height:140px;
+  margin-left: 120px;
+  margin-top: 5px;
+  background-image: url('step_2.png');
+  background-size:cover;
+}
+
+#tagline_home{
+  width: 1400px;
+  float:left;
+  min-height:220px;
+  color: grey;
+  margin-top: 40px;
+  text-align: center;
+  background-color:white;
+}
+
+#step_1{
+  width: 350px;
+  float:left;
+  min-height:350px;
+  color: Black;
+  margin-left: 110px;
+  margin-top: 10px;
+  background-color: #e6faff;
+}
+
+#step_2{
+  width: 350px;
+  float:left;
+  min-height:350px;
+  color: Black;
+  margin-left: 78px;
+  margin-top: 10px;
+  background-color: #e6faff;
+}
+
+#step_3{
+  width: 350px;
+  float:left;
+  min-height:350px;
+  color: Black;
+  margin-left: 70px;
+  margin-top: 10px;
+  background-color: #e6faff;
+}
+
+#steps_home{
+  width: 1420px;
+  float:left;
+  min-height:550px;
+  color: #000066;
+  margin-top: 0px;
+  text-align: center;
+  background-color:white;
+}
+
+#tag_h1{
+    font-family:Comic Sans MS;
+}
+
+
 header{
-  background-color: black;
+  background-color: white;
   min-height: 50px;
-  text-indent: 12px;
+  text-indent: 1px;
+  color: white;
+  margin-top: 50px;
+  font-size: 12px;
 }
 
 #main{
   min-height:720px;
-  background: url('processimage.png');
+  background-color: white;
   background-size: cover;
   overflow: hidden;
 }
@@ -83,13 +185,30 @@ header{
 footer{
   text-align: center;
   margin-top: 10px;
-  background-color: black;
+  background-color: white;
   min-height: 50px;
+  font-size: 15px;
+  color:#666699;
 }
-ul{
-  list-style:none;
-  list-style-position: inside;
-    padding-left:0;
+
+#ul1{
+    list-style:none;
+    list-style-position: inside;
+    padding-left:50px;
+    margin: 0;
+    position: absolute;
+    padding-top: 3px;
+    color: #00cccc;
+    font-size: 16px;
+    font-family: Calibri Light;
+    position: relative;
+    z-index:1000;
+}
+
+#ul2{
+    list-style:none;
+    list-style-position: inside;
+    padding-left:1000px;
     margin: 0;
     position: absolute;
     padding-top: 3px;
@@ -97,41 +216,28 @@ ul{
 
 ul li{
   float:left;
-  width: 200px;
-  background-color: black;
+  font-size: x-small;
+  background-color: white;
   opacity: .9;
   line-height: 40px;
   text-align: center;
   font-size: 20px;
-  margin-right: 40px;
-  margin-left: 40px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 ul li a{
   text-decoration: none;
-  color: white;
+  font-family: Calibri Light;
+  font-size: 16px;
+  color: #666699;
   display: block;
 }
 
 ul li a:hover{
-  color :Black ;
-  background-color: orange;
+  color: #00cccc;
+  font-size: 16px;
+  font-family: Calibri Light;
   position: relative;
   z-index:1000;
-}
-
-ul li ul li{
-  display:none;
-}
-
-ul li:hover ul li{
-  display: block;
-  padding-top: 0px;
-  float: none;
-  list-style:none;
-  list-style-position: inside;
-    padding-left:0;
-    margin: 0;
-    position: relative;
-    z-index:1000;
 }
