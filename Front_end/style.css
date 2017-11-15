@@ -30,14 +30,39 @@ div #container{
 }
 
 #chngpswd1{
-  width: 570px;
+  width: 350px;
   float:left;
-  min-height:500px;
+  min-height:300px;
   color: Black;
-  margin-left: 430px;
-  margin-top: 100px;
-  background-color:white;
+  margin-left: 70px;
+  margin-top: 150px;
+  background-image:url('tours.jpg');
+  background-size:cover;
 }
+
+#chngpswd2{
+  width: 350px;
+  float:left;
+  min-height:300px;
+  color: Black;
+  margin-left: 70px;
+  margin-top: 150px;
+  background-image:url('employee.jpg');
+  background-size:cover;
+
+}
+
+#chngpswd3{
+  width: 350px;
+  float:left;
+  min-height:300px;
+  color: Black;
+  margin-left: 70px;
+  margin-top: 150px;
+  background-image:url('rocket.jpg');
+  background-size:cover;
+}
+
 #chngpswd_submit1{
     width: 20em;  height: 50em;
 }
@@ -46,9 +71,8 @@ div #container{
 }
 #main_chngpswd{
   min-height:726px;
-  background: url('processimage.png');
-  background-size: cover;
-  overflow: hidden;
+    color: Black;
+  background-color:#b3ffff;
 }
 
 .toHideContainer {
@@ -84,6 +108,18 @@ div #container{
   background-size:contain;
 }
 
+#img_aboutus{
+  width: 1450px;
+  float:left;
+  min-height:335px;
+  color: Black;
+  margin-left: 0px;
+  background-image: url('AboutUsNew.jpg');
+  background-size:contain;
+  font-family: comic sans ms;
+}
+
+
 #step1img{
   width: 150px;
   float:left;
@@ -93,6 +129,59 @@ div #container{
   background-size:contain;
 }
 
+#step1img_au{
+  width: 120px;
+  float:left;
+  min-height:170px;
+  margin-right: 5px;
+  background-image: url('uk.png');
+  background-size:cover;
+}
+#name_about
+{
+  color: #990000;
+}
+
+#step_1_au{
+  width: 380px;
+  float:left;
+  min-height:100px;
+  color: Black;
+  margin-left: 10px;
+  color:grey;
+}
+#step2img_au{
+  width: 120px;
+  float:left;
+  min-height:170px;
+  margin-right: 5px;
+  background-image: url('uk.png');
+  background-size:cover;
+}
+
+#step_2_au{
+  width: 380px;
+  float:left;
+  min-height:100px;
+  color: Black;
+  margin-left: 10px;
+}
+#step3img_au{
+  width: 120px;
+  float:left;
+  min-height:170px;
+  margin-right: 5px;
+  background-image: url('uk.png');
+  background-size:cover;
+}
+
+#step_3_au{
+  width: 380px;
+  float:left;
+  min-height:100px;
+  color: Black;
+  margin-left: 10px;
+}
 #step3img{
   width: 150px;
   float:left;
@@ -124,6 +213,17 @@ div #container{
   background-color:white;
 }
 
+#tagline_home_about{
+  width: 1400px;
+  float:left;
+  min-height:220px;
+  color: grey;
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 30px;
+  background-color:white;
+}
+
 #step_1{
   width: 350px;
   float:left;
@@ -133,6 +233,7 @@ div #container{
   margin-top: 10px;
   background-color: #e6faff;
 }
+
 
 #step_2{
   width: 350px;
@@ -163,6 +264,15 @@ div #container{
   text-align: center;
   background-color:white;
 }
+#steps_home_au{
+  width: 1420px;
+  float:left;
+  min-height:250px;
+  color: #000066;
+  margin-top: 0px;
+  text-align: center;
+  background-color:white;
+}
 
 #login_home{
   width: 1420px;
@@ -173,6 +283,21 @@ div #container{
   background-color:#ff6666;
   text-align: center;
 }
+
+#contri_about{
+  width: 1420px;
+  float:left;
+  margin-top: 50px;
+  min-height:120px;
+  color: White;
+  padding-top: 30px;
+  margin-left: 0px;
+  background-color:#d147a3;
+  text-align: center;
+  font-family: comic sans ms;
+  margin-bottom: 20px;
+}
+
 input#emailhome
 {
   min-width: 350px;
@@ -204,6 +329,15 @@ input#submithome {
 }
 #tag_h1{
     font-family:Comic Sans MS;
+}
+
+#tag_h1_about{
+  font-family:Comic Sans MS;
+  color: #000066;
+}
+#tag_h1_about_2{
+  font-family:Helvetica;
+  line-height: 30px;
 }
 
 header{
