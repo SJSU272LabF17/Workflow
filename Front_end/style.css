@@ -280,7 +280,7 @@ background-color: white;
   margin-left: 250px;
 }
 #step_4_au{
-  width: 380px;
+  width: 420px;
   float:left;
   min-height:100px;
   color: Black;
@@ -297,11 +297,11 @@ background-color: white;
 }
 
 #step4img_au{
-  width: 120px;
+  width: 170px;
   float:left;
   min-height:170px;
   margin-right: 5px;
-  background-image: url('manavatar.png');
+  background-image: url('hsien2.jpeg');
   background-size:cover;
 }
 #step_3_au{
