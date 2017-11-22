@@ -2,229 +2,26 @@
 <html>
 {% load static %}
 <link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
-
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-
-<body>
-  <script>
-    function toggleContainer(value) {
-      $(".toHideContainer").hide();
-      if (value == "short_opt") {
-        $("#short_div1").show();
-      } else if (value == "long_opt") {
-        $("#long_div1").show();
-      } else if (value == "multi_opt") {
-        $("#multi_div1").show();
-      } else if (value == "check_opt") {
-        $("#check_div1").show();
-      } else if (value == "dropdown_opt") {
-        $("#dropdown_div1").show();
-      } else if (value == "date_opt") {
-        $("#date_div1").show();
-      } else if (value == "tip_opt") {
-        $("#tip_div1").show();
-      }
-    }
-  </script>
-  <div id="container">
-  <header>
-      <ul>
-        <li><a href='/'>Home</a></li>
-        <li><a>About</a>
-          <ul>
-            <li><a href='project'>  Project  </a></li>
-            <li><a href='contributors'>  Contributors  </a></li>
-          </ul>
-        </li>
-        <li><a href='checklists'>Checklists</a>
-          <ul>
-            <li><a href='create'>  Create New  </a></li>
-            <li><a href='savedChecklist'>  Saved  </a></li>
-          </ul>
-        </li>
-        <li><a href='contact'>Contact</a></li>
-        {% if user %}
-        <li><a>Account</a>
-          <ul>
-            <li><a href='logout'>Sign Out</a></li>
-            <li><a href='chngPswd'>Change Password</a></li>
-          </ul>
-        </li>
-        {% else %}
-        <li><a>Account</a>
-          <ul>
-            <li><a href='index'>Sign In / Sign Up</a></li>
-          </ul>
-        </li>    
-        {% endif %}
-      </ul>
-    </header>
-    <div id="main">
-      <div id="column1">
-        <center>
-          <br>
-          <h1>Create Your Own Checklist</h1></p>
-          <br>
-        </center>
-        <center>
-          <form>
-            <select onchange="toggleContainer(this.value)">
-            <option value="tip_opt">Select Any One</option>
-            <option value="short_opt">Short Texts</option>
-            <option value="long_opt">Long Texts</option>
-            <option value="multi_opt">Multiple Choice</option>
-            <option value="check_opt">Check Box</option>
-            <option value="dropdown_opt">Drop Downs</option>
-            <option value="date_opt">Date</option>
-          </select>
-          </form>
-          <br>
-        </center>
-
-        <div id="short_div1" class="toHideContainer" style="display: none">
-          <!-- Short Texts:-->
-          <h4>
-            <br>'Short Text' element:
-            <br>
-          </h4>
-          <form action="NewChecklist.html#column2">
-            <h5> <br> Title:<input type="text" name="short_title">
-            <br>
-          <br>Description: <br> <textarea rows="10" cols="40" name="short_des"> </textarea>
-          <br>
-          <br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;
-          <input type="submit" value="Create" name="short_ct">&nbsp;&nbsp;
-          <input type="reset" value="Clear" name="short_clr">&nbsp;&nbsp;
-          <input type="submit" value="Delete" name="short_del">
-        </h5>
-          </form>
-          <br>
-        </div>
-        <div id="long_div1" class="toHideContainer" style="display: none">
-          <!-- Long Texts:  -->
-          <h4>
-            <br>'Long Text' element:
-            <br>
-          </h4>
-          <form action="NewChecklist.html#column2">
-            <h5> <br> Title:<input type="text" name="long_title"><br>
-          <br>Description: <br> <textarea rows="10" cols="40" name="long_des"> </textarea>
-          <br>
-          <br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;
-          <input type="submit" value="Create" name="long_ct">&nbsp;&nbsp;
-          <input type="reset" value="Clear" name="long_clr">&nbsp;&nbsp;
-          <input type="submit" value="Delete" name="long_del">
-          <br>
-        </h5>
-          </form>
-        </div>
-        <div id="multi_div1" class="toHideContainer" style="display: none">
-          <!-- Multiple Choice:  -->
-          <h4>
-            <br>'Multiple-Choice' element:
-            <br>
-          </h4>
-          <form action="NewChecklist.html#column2">
-            <h5> <br> Title:<input type="text" name="multi_title">
-          <br>
-          <br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="submit" value="Create" name="multi_ct">&nbsp;&nbsp;
-          <input type="reset" value="Clear" name="multi_clr">&nbsp;&nbsp;
-          <input type="submit" value="Delete" name="multi_del">
-          <br>
-        </h5>
-          </form>
-        </div>
-        <div id="check_div1" class="toHideContainer" style="display: none">
-          <!-- Check Box Choice:  -->
-          <h4>
-            <br>'Check Box' element:
-            <br>
-          </h4>
-          <form action="NewChecklist.html#column2">
-            <h5> <br> Title: <input type="text" name="check_title">
-            <br>
-            <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="submit" value="Create" name="check_ct">&nbsp;&nbsp;
-          <input type="reset" value="Clear" name="check_clr">&nbsp;&nbsp;
-          <input type="submit" value="Delete" name="check_del">
-          <br>
-        </form>
-        </h5>
-        </div>
-        <div id="dropdown_div1" class="toHideContainer" style="display: none">
-          <!-- Drop Downs:  -->
-          <h4>
-            <br>'Drop Down' element:
-            <br>
-          </h4>
-          <form action="NewChecklist.html#column2">
-            <h5> <br> Title: <input type="text" name="dropdown_title">
-            <br>
-            <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="submit" value="Create" name="dropdown_ct">&nbsp;&nbsp;
-          <input type="reset" value="Clear" name="dropdown_clr">&nbsp;&nbsp;
-          <input type="submit" value="Delete" name="dropdown_del">
-          <br>
-        </h5>
-          </form>
-        </div>
-        <div id="date_div1" class="toHideContainer" style="display: none">
-          <!-- Date:  -->
-          <h4>
-            <br>'Date' element:
-            <br>
-          </h4>
-          <h5>
-            <form action="NewChecklist.html#column2">
-            <br> Title: <input type="text" name="date_title">
-            <br>
-            <br>Description: <textarea rows="10" cols="40" name="long_des"> </textarea>
-            <br>
-            <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;
-            <input type="submit" value="Create" name="date_ct">&nbsp;&nbsp;
-            <input type="reset" value="Clear" name="date_clr">&nbsp;&nbsp;
-            <input type="submit" value="Delete" name="date_del">
-            <br>
-          </h5>
-          </form>
-        </div>
-
-        <div id="tip_div1" class="toHideContainer" style="display: all">
-          <p id="myp">
-            <h5>Start tip: <br>Select your choice of checklist elements using the above drop-down menu.
-            <br><br>
-            Sample Output: <br>
-            Please enter your name <br>
-            Employee Name <input type="text"><br>
-            <br>
-            Here, 'Employee Name' is the title provided by manager during the creation of an element.
-            <br>
-            'Please Enter Your Name' is the description provided by the manager
-            <br>
-          </h5></p>
-        </div>
-      </div>
-      <div id="column2">Column 2</div>
+<header>
+  <ul id="ul1_newcheck">
+    <li><a href='/'>PROCESS 9</a></li>
+  </ul>
+  <ul id="ul2_newcheck">
+    <li><a href='Home.html'>SIGN OUT</a></li>
+  </ul>
+</header>
+<div id="main_newchecklist">
+  <div id="template_1">
+    <h1 id="logintag">Create New Template</h1>
+    <br> <br>
+    <div>
+      <form id="tempform">
+        <input type="text" placeholder="Template Name" id="tempname">
+        <input type="submit" value="Create" id="tempsubmit">
+      </form>
     </div>
-    <footer>
-      Project Title: Process 9 <br> Description: CmPE 272 - Project Team 9 - Process WorkFlow Automation
-    </footer>
   </div>
-
-
-
-</body>
-
-</html>
+</div>
+<footer>
+  Project Title: Process 9 <br> Description: CmPE 272 - Project Team 9 - Process WorkFlow Automation
+</footer>

@@ -1,0 +1,102 @@
+<html>
+{% load static %}
+<link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
+
+<body>
+  <script type="text/javascript">
+    function ValidateEmail1(form_id, email) {
+      var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      var address = document.forms[form_id].elements[email].value;
+      if (reg.test(address) == false) {
+        alert("You have entered an invalid email address!");
+        document.forms[form_id].elements[email].focus();
+        return false;
+      }
+    }
+
+    // function ValidateEmail2(form_id, email) {
+    //   var reg2 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    //   var address2 = document.forms[form_id].elements[email].value;
+    //   var pswd1 = document.getElementById('pswdsign2').value;
+    //   var pswd2 = document.getElementById('pswdsign3').value;
+    //   if (reg2.test(address2) == false) 
+    //     alert("You have entered an invalid email address!");
+    //     document.forms[form_id].elements[email].focus();
+    //     return false;
+    //   }
+    //   if (pswd1 != pswd2) {
+    //     alert("Passwords does not match");
+    //     document.forms["signform2"]["pswdsign2_1"].focus();
+    //     return false;
+    //   }
+    //   return true;
+    // }
+
+    function toggleContainer(id) {
+      console.log(id);
+      $(".toHideContainer").hide();
+      if (id == "olduserbutton") {
+        $("#step_1_signin").show();
+      } else if (id == "newuserbutton") {
+        $("#step_2_signin").show();
+      }
+    }
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+  <div id="container">
+    <header>
+      <ul id="ul1">
+        <li><a href='/'>PROCESS 9</a></li>
+      </ul>
+    </header>
+  </div>
+  <div id="signinpart1">
+  </div>
+  <div id="signinbutton">
+    <form>
+      <h2 id="SignInNote1">Already a member?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        New to Process 9?</h2>
+      <input type="button" id="olduserbutton" value="SIGN IN" name="olduserbutton" onclick="toggleContainer('olduserbutton')">
+      <input type="button" id="newuserbutton" value="SIGN UP" name="newuserbutton_1" onclick="toggleContainer('newuserbutton')">
+    </form>
+  </div>
+  <div id="main_signin">
+    <div id="step_1_signin" class="toHideContainer" style="display: none">
+      <div id="step1img_signin">
+        <h1 id="titlesignin">Process 9</h1>
+      </div>
+      <br>
+      <br>
+      <form id='signform' onsubmit="javascript:return ValidateEmail1('signform','emailsign1');">
+        <input type="text" placeholder="Email Id" id="emailsignid1" name="emailsign1">
+        <br><br><br>
+        <input type="password" placeholder="Password" id="pswdsign1">
+        <br><br>
+        <input type="submit" value="Login" id="submitsign1">
+      </form>
+      <h4><a href="ChngPswd.html" id="forgothyper">Forgot Password?</a></h4>
+    </div>
+    <div id="step_2_signin" class="toHideContainer" style="display: none">
+      <div id="step1img_signin">
+        <h1 id="titlesignin">Process 9</h1>
+      </div>
+      <form id='signform2' onsubmit="javascript:return ValidateEmail2('signform2','emailsign2');">
+        <input type="text" placeholder="Email Id" id="emailsignid2" name="emailsign2">
+        <br><br>
+        <input type="password" placeholder="New Password" id="pswdsign2" name="pswdsign2_1">
+        <br><br>
+        <input type="password" placeholder="Confirm Password" id="pswdsign3" name="pswdsign3_1">
+        <br><br>
+        <input type="submit" value="Register" id="submitsign2">
+      </form>
+    </div>
+  </div>
+  <footer>
+    <br> Title: Process 9 <br> CmpE 272 - Project Team 9 - Process WorkFlow Automation
+  </footer>
+</body>
+
+</html>

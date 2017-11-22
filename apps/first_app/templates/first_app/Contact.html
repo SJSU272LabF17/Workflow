@@ -1,54 +1,34 @@
+<!DOCTYPE HTML>
 <html>
 {% load static %}
 <link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
 <div id="container">
-<header>
-    <ul>
-      <li><a href='/'>Home</a></li>
-      <li><a>About</a>
-        <ul>
-          <li><a href='project'>  Project  </a></li>
-          <li><a href='contributors'>  Contributors  </a></li>
-        </ul>
-      </li>
-      <li><a href='checklists'>Checklists</a>
-        <ul>
-          <li><a href='create'>  Create New  </a></li>
-          <li><a href='savedChecklist'>  Saved  </a></li>
-        </ul>
-      </li>
-      <li><a href='contact'>Contact</a></li>
-      {% if user %}
-      <li><a>Account</a>
-        <ul>
-          <li><a href='logout'>Sign Out</a></li>
-          <li><a href='chngPswd'>Change Password</a></li>
-        </ul>
-      </li>
-      {% else %}
-      <li><a>Account</a>
-        <ul>
-          <li><a href='index'>Sign In / Sign Up</a></li>
-        </ul>
-      </li>    
-      {% endif %}
+  <header>
+    <ul id="ul1">
+      <li><a href='/'>PROCESS 9</a></li>
     </ul>
   </header>
-  <div id="main_chngpswd">
-    <div id="chngpswd1">
-      <h1><center><u>Contact Details</u></center></h1>
+</div>
+<div id="main_pswd">
+  <div id="contactimg">
+  </div>
+  <div id="contactdiv">
+    <div>
+      <h1 id="tag_h1_contact">Contact Details</h1>
+    </div>
+    <div id="contactbody">
       <h3>
-      <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Process 9</u>
       <br>
-      <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address: 1 Washington Sq, San Jose, CA 95192<br>
-      <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact: +1 (000) 000 0000<br>
-      <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email id.: abc.process9@gmail.com <br>
+      <br>Address: 1 Washington Sq, San Jose, CA 95192<br>
+      <br>Contact: +1 (000) 000 0000<br>
+      <br>Email id.: abc.process9@gmail.com<br>
       </h3>
     </div>
   </div>
-  <footer>
-    Project Title: Process 9 <br> Description: CmPE 272 - Project Team 9 - Process WorkFlow Automation
-  </footer>
+</div>
+<footer>
+  Project Title: Process 9 <br> Description: CmpE 272 - Project Team 9 - Process WorkFlow Automation
+</footer>
 </div>
 
 

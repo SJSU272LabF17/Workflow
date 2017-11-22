@@ -141,3 +141,34 @@ def savedChecklist(request):
     'users' : User.objects.all()
     }
     return render(request, 'first_app/savedChecklist.html', context)
+
+def about(request):
+    return render(request, 'first_app/about.html')
+
+def services(request):
+    return render(request, 'first_app/services.html')
+
+def signin(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/signin.html', context)
+
+def contact(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/Contact.html', context)
+
+def newchecklist(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/newchecklist.html', context)
+
+def savechecklist(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/savechecklist.html', context)
+
