@@ -160,7 +160,7 @@ div #container{
   min-height:335px;
   color: Black;
   margin-left: 0px;
-  background-image: url('AboutUsNew.jpg');
+  background-image: url('aboutUsNew.jpg');
   background-size:contain;
   font-family: comic sans ms;
 }
@@ -168,7 +168,7 @@ div #container{
   width: 1450px;
   float:left;
   min-height:280px;
-  background-image: url('SignInImg1.png');
+  background-image: url('signInImg1.png');
   background-size:cover;
   margin-bottom: 20px;
 }
@@ -488,7 +488,7 @@ background-color: white;
   color: Black;
   margin-left: 70px;
   margin-top: 10px;
-  background-image: url('ItDeploy.jpg');
+  background-image: url('itDeploy.jpg');
   background-size: cover;
   border-style: solid;
   border-color: grey;
