@@ -160,7 +160,7 @@ div #container{
   min-height:335px;
   color: Black;
   margin-left: 0px;
-  background-image: url('AboutUsNew.jpg');
+  background-image: url('aboutUsNew.jpg');
   background-size:contain;
   font-family: comic sans ms;
 }
@@ -168,7 +168,7 @@ div #container{
   width: 1450px;
   float:left;
   min-height:280px;
-  background-image: url('SignInImg1.png');
+  background-image: url('signInImg1.png');
   background-size:cover;
   margin-bottom: 20px;
 }
@@ -184,7 +184,16 @@ div #container{
   background-size:cover;
   font-family: comic sans ms;
 }
-
+#img_tempimg{
+  width: 1500px;
+  float:left;
+  min-height:250px;
+  color: Black;
+  margin-bottom: 50px;
+  background-image: url('tempImg.jpg');
+  background-size:contain;
+  font-family: comic sans ms;
+}
 #step1img_services{
   width: 350px;
   float:left;
@@ -192,6 +201,48 @@ div #container{
   margin-left: 0px;
   margin-top: 200px;
   background-color: #e6f9ff;
+}
+#step1img_dashBoard{
+  width: 350px;
+  float:left;
+  min-height:50px;
+  margin-left: 0px;
+  margin-top: 200px;
+  background-color: #f2ffe6;
+}
+#myprogdetail1
+{
+  width: 100px;
+  font-family: Lucida Handwriting;
+  font-size: 20px;
+  color: white;
+  background-color: #003366;
+  border-radius: 2px;
+}
+#dashdiv
+{
+  min-height: 200px;
+  color:black;
+  background-color: yellow;
+  min-width: 200px;
+}
+#myprogdetail2
+{
+  width: 100px;
+  font-family: Lucida Handwriting;
+  font-size: 20px;
+  color: white;
+  background-color: #003366;
+  border-radius: 2px;
+}
+#step1img_dashBoard2{
+  width: 350px;
+  float:left;
+  min-height:50px;
+  margin-left: 0px;
+  color: white;
+  margin-bottom: 6px;
+  background-color: #ff8080;
 }
 #step1img_temp{
   width: 350px;
@@ -240,6 +291,22 @@ div #container{
   margin-left: 0px;
   margin-top: 200px;
   background-color: #f2ffe6;
+}
+#step3img_services{
+  width: 350px;
+  float:left;
+  min-height:50px;
+  margin-left: 0px;
+  margin-top: 200px;
+  background-color: #f2ffe6;
+}
+#step2img_dashBoard{
+  width: 350px;
+  float:left;
+  min-height:50px;
+  margin-left: 0px;
+  margin-top: 200px;
+  background-color: #e6f9ff;
 }
 #step1img_au{
   width: 170px;
@@ -413,6 +480,34 @@ background-color: white;
     border-style: solid;
     border-color: grey;
 }
+#step_3_services{
+  width: 350px;
+  float:left;
+  min-height:350px;
+  color: Black;
+  margin-left: 80px;
+  margin-right: 30px;
+  margin-top: 10px;
+  background-image: url('tempImg3.jpg');
+    background-size: cover;
+    border-bottom:3px;
+    border-style: solid;
+    border-color: grey;
+}
+#step_2_dashBoard{
+  width: 350px;
+  float:left;
+  min-height:350px;
+  color: Black;
+  margin-left: 80px;
+  margin-right: 30px;
+  margin-top: 10px;
+  background-image: url('templatesImg.jpg');
+  background-size: cover;
+  border-bottom:3px;
+  border-style: solid;
+  border-color: grey;
+}
 #step_2_signin{
   width: 400px;
   float:left;
@@ -428,10 +523,38 @@ background-color: white;
   float:left;
   min-height:350px;
   color: Black;
-  margin-left: 280px;
+  margin-left: 70px;
   margin-right: 30px;
   margin-top: 10px;
   background-image: url('newtemplate3.jpg');
+  background-size: cover;
+  border-bottom:3px;
+  border-style: solid;
+  border-color: grey;
+}
+#step_1_dashBoard{
+  width: 350px;
+  float:left;
+  min-height:350px;
+  color: Black;
+  margin-left: 280px;
+  margin-right: 30px;
+  margin-top: 10px;
+  background-image: url('dashBoardImg.jpg');
+  background-size: cover;
+  border-bottom:3px;
+  border-style: solid;
+  border-color: grey;
+}
+#step_1_dashBoard2{
+  width: 350px;
+  float:left;
+  min-height:50px;
+  color: Black;
+  margin-left: 230px;
+  margin-right: 30px;
+
+  background-color: white;
   background-size: cover;
   border-bottom:3px;
   border-style: solid;
@@ -488,7 +611,7 @@ background-color: white;
   color: Black;
   margin-left: 70px;
   margin-top: 10px;
-  background-image: url('ItDeploy.jpg');
+  background-image: url('itDeploy.jpg');
   background-size: cover;
   border-style: solid;
   border-color: grey;
@@ -506,7 +629,25 @@ background-color: white;
 #steps_home_services{
   width: 1420px;
   float:left;
+  min-height:480px;
+  color: #e6ffe6;
+  margin-top: 0px;
+  text-align: center;
+  background-color:white;
+}
+#steps_home_dashBoard{
+  width: 1420px;
+  float:left;
   min-height:500px;
+  color: #e6ffe6;
+  margin-top: 0px;
+  text-align: center;
+  background-color:white;
+}
+#steps_home_dashBoard2{
+  width: 1420px;
+  float:left;
+  min-height:400px;
   color: #e6ffe6;
   margin-top: 0px;
   text-align: center;
@@ -541,6 +682,17 @@ background-color: white;
   margin-left: 0px;
   margin-bottom: 40px;
   background-image: url('tempImg2.jpg');
+  background-size: cover;
+}
+#dashBoard_title{
+  width: 1420px;
+  float:left;
+  min-height:250px;
+  color: white;
+  text-align: center;
+  margin-left: 0px;
+  margin-bottom: 40px;
+  background-image: url('fdash.jpg');
   background-size: cover;
 }
 #template_1{
@@ -673,6 +825,17 @@ input#olduserbutton {
     background-color: #003366;
     border-radius: 20px;
 }
+input#newtemp{
+    width: 100px;
+    font-family: Lucida Handwriting;
+    font-size: 20px;
+    color: white;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-left: 0px;
+    background-color: #003366;
+    border-radius: 2px;
+}
 #SignInNote1
 {
   font-family: comic sans ms;
@@ -722,9 +885,16 @@ input#tempsubmit{
     margin-right: 10px;
 }
 #savedcheck_line{
-    font-size: 60px;
+    font-size: 50px;
     font-family:Comic Sans MS;
-    margin-top: 80px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    text-shadow: 4px 4px #003300;
+}
+#savedcheck_line2{
+    font-size: 50px;
+    font-family:Comic Sans MS;
+    margin-top: 100px;
     margin-bottom: 0px;
     text-shadow: 4px 4px #003300;
 }
@@ -758,6 +928,13 @@ header{
   margin-bottom: 40px;
 }
 #main_savedcheck{
+  min-height:650px;
+  background-color: white;
+  background-size: cover;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+#main_dashBoard{
   min-height:650px;
   background-color: white;
   background-size: cover;

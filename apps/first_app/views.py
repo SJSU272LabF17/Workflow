@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import User, Item
-import requests, json
 
 def home(request):
     try:
@@ -21,12 +20,15 @@ def index(request):
     return render(request, 'first_app/index.html', context)
 
 def register(request):
-    print ("register run!")
+    if request.POST['pw'] != request.POST['c_pw']:
+        messages.error(request, "Passwords does not match")
+        return redirect('/index') 
     postData = {
-    'username': request.POST.get('emailsign2', "default email"),
-    'pw': request.POST.get('password', 'default pw'),
+    'name': request.POST['name'],
+    'username': request.POST['username'],
+    'h_date': request.POST['h_date'],
+    'pw': request.POST['pw'],
     }
-    print (postData)
     result = User.objects.register(postData)
     if result[0] == False:
         for error in result[1]:
@@ -34,18 +36,18 @@ def register(request):
         return redirect('/index')
     else:
         request.session['user_id'] = result[1].id
-    return redirect('/') 
+        return redirect('/') 
 
 def login(request):
     postData = {
-    'username': request.POST.get('emailsign1', "default email"),
-    'pw': request.POST.get('pw', 'default pw'),
+    'username': request.POST['username'],
+    'pw': request.POST['pw'],
     }
     result = User.objects.login(postData)
     if result[0] == False:
         for error in result[1]:
             messages.error(request, error)
-        return redirect('/signin')
+        return redirect('/index')
     else:
         request.session['user_id'] = result[1].id
         return redirect('/')
@@ -172,4 +174,46 @@ def savechecklist(request):
     'users' : User.objects.all()
     }
     return render(request, 'first_app/savechecklist.html', context)
+
+def dashBoard(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/dashBoard.html', context)
+
+def templates(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/templates.html', context)
+
+def newSavedChecklist(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/newSavedChecklist.html', context)
+
+def SavedChecklist(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/SavedChecklist.html', context)
+
+def itmain(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/itmain.html', context)
+
+def coffeemain(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/coffeemain.html', context)
+
+def constructmain(request):
+    context = {
+    'users' : User.objects.all()
+    }
+    return render(request, 'first_app/constructmain.html', context)
 
