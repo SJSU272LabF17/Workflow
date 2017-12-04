@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+<link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
+
+<header>
+  <ul id="ul1_newcheck">
+    <li><a href='/'>PROCESS 9</a></li>
+  </ul>
+  <ul id="ul2_newcheck">
+    <li><a href='/'>SIGN OUT</a></li>
+  </ul>
+</header>
+<div id="main_newchecklist">
+  <div id="template_1">
+    <h1 id="logintag">Create New Template</h1>
+    <br> <br>
+    <div>
+      <form id="tempform">
+        <input type="text" placeholder="Template Name" id="tempname">
+        <input type="submit" value="Create" id="tempsubmit">
+      </form>
+    </div>
+  </div>
+</div>
+<footer>
+  Project Title: Process 9 <br> Description: CmPE 272 - Project Team 9 - Process WorkFlow Automation
+</footer>
