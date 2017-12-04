@@ -1,13 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import User, Item
+import requests, json
 
 def home(request):
-    this_user = User.objects.filter(id=request.session['user_id']).first()
-    context = {
-    'user': this_user,
-    'items': Item.objects.all()
-    }
+    try:
+        this_user = User.objects.filter(id=request.session['user_id']).first()
+        context = {
+        'user': this_user,
+        'items': Item.objects.all()
+        }
+    except:
+        context = {}
     return render(request, 'first_app/home.html', context)
 
 def index(request):
@@ -17,15 +21,12 @@ def index(request):
     return render(request, 'first_app/index.html', context)
 
 def register(request):
-    if request.POST['pw'] != request.POST['c_pw']:
-        messages.error(request, "Passwords does not match")
-        return redirect('/index') 
+    print ("register run!")
     postData = {
-    'name': request.POST['name'],
-    'username': request.POST['username'],
-    'h_date': request.POST['h_date'],
-    'pw': request.POST['pw'],
+    'username': request.POST.get('emailsign2', "default email"),
+    'pw': request.POST.get('password', 'default pw'),
     }
+    print (postData)
     result = User.objects.register(postData)
     if result[0] == False:
         for error in result[1]:
@@ -33,18 +34,18 @@ def register(request):
         return redirect('/index')
     else:
         request.session['user_id'] = result[1].id
-        return redirect('/') 
+    return redirect('/') 
 
 def login(request):
     postData = {
-    'username': request.POST['username'],
-    'pw': request.POST['pw'],
+    'username': request.POST.get('emailsign1', "default email"),
+    'pw': request.POST.get('pw', 'default pw'),
     }
     result = User.objects.login(postData)
     if result[0] == False:
         for error in result[1]:
             messages.error(request, error)
-        return redirect('/index')
+        return redirect('/signin')
     else:
         request.session['user_id'] = result[1].id
         return redirect('/')
