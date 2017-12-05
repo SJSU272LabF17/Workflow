@@ -1,12 +1,20 @@
 <!DOCTYPE HTML>
 <html>
 <link href='style.css' rel='stylesheet'>
+<script type="text/javascript">
+  window.location.hash = "no-back-button";
+  window.location.hash = "Again-No-back-button"; //again because google chrome don't insert first hash into history
+  window.onhashchange = function() {
+    window.location.hash = "no-back-button";
+  }
+</script>
 <div id="container">
   <header>
-    <ul id="ul1">
-      <li><a href='home.html'>PROCESS 9</a></li>
+    <ul id="ul1_newcheck">
+      <li><a href='home.html'>BACK</a></li>
     </ul>
     <ul id="ul2">
+      <li><a href='home.html'>PROCESS 9</a></li>
       <li><a href='about.html'>ABOUT US</a>
       </li>
       <li><a href='services.html'>SERVICES</a>

@@ -8,6 +8,11 @@
 
 <body>
   <script>
+    window.onbeforeunload = function() {
+      return "Your work will be lost.";
+    };
+  </script>
+  <script>
     function toggleContainer(value) {
       $(".toHideContainer").hide();
       if (value == "short_opt") {

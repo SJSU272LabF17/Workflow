@@ -15,14 +15,20 @@
         $("#listIThome").show();
       }
     }
+    window.location.hash = "no-back-button";
+    window.location.hash = "Again-No-back-button"; //again because google chrome don't insert first hash into history
+    window.onhashchange = function() {
+      window.location.hash = "no-back-button";
+    }
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   </script>
   <header>
     <ul id="ul1_newcheck">
-      <li><a href='home.html'>PROCESS 9</a></li>
+      <li><a href='templates.html'>BACK</a></li>
     </ul>
     <ul id="ul2">
+      <li><a href='home.html'>PROCESS 9</a></li>
       <li><a href='about.html'>ABOUT US</a>
       </li>
       <li><a href='services.html'>SERVICES</a>
@@ -55,17 +61,17 @@
       <div id="listcons">
         <br>
         <form action="newsavedchecklist2.html" id="myform1">
-          <h3><input type="checkbox" id="cflist0" class="form-check-input"> Create Business Plan</h3>
-          <h3><input type="checkbox" id="cflist1" class="form-check-input"> Market Research</h3>
-          <h3><input type="checkbox" id="cflist2" class="form-check-input"> Coffee Shop Location</h3>
-          <h3><input type="checkbox" id="cflist3" class="form-check-input"> Create Floor Plan</h3>
-          <h3><input type="checkbox" id="cflist4" class="form-check-input"> Coffee Equipment Selection</h3>
-          <h3><input type="checkbox" id="cflist5" class="form-check-input"> Local laws and Health Regulations</h3>
-          <h3><input type="checkbox" id="cflist6" class="form-check-input"> Decide Coffee Menu and Prices</h3>
-          <h3><input type="checkbox" id="cflist7" class="form-check-input"> Sign Business Lease</h3>
-          <h3><input type="checkbox" id="cflist8" class="form-check-input"> Employee Hiring and Training</h3>
-          <h3><input type="checkbox" id="cflist9" class="form-check-input"> Hold a Grand Opening</h3>
-          <input type="submit" value="Create" id="subcoflist" onsubmit="check()">
+          <h3><input name='coffee' type="checkbox" id="cflist0" class="form-check-input"> Create Business Plan</h3>
+          <h3><input name='coffee' type="checkbox" id="cflist1" class="form-check-input"> Market Research</h3>
+          <h3><input name='coffee' type="checkbox" id="cflist2" class="form-check-input"> Coffee Shop Location</h3>
+          <h3><input name='coffee' type="checkbox" id="cflist3" class="form-check-input"> Create Floor Plan</h3>
+          <h3><input name='coffee' type="checkbox" id="cflist4" class="form-check-input"> Coffee Equipment Selection</h3>
+          <h3><input name='coffee' type="checkbox" id="cflist5" class="form-check-input"> Local laws and Health Regulations</h3>
+          <h3><input name='coffee' type="checkbox" id="cflist6" class="form-check-input"> Decide Coffee Menu and Prices</h3>
+          <h3><input name='coffee' type="checkbox" id="cflist7" class="form-check-input"> Sign Business Lease</h3>
+          <h3><input name='coffee' type="checkbox" id="cflist8" class="form-check-input"> Employee Hiring and Training</h3>
+          <h3><input name='coffee' type="checkbox" id="cflist9" class="form-check-input"> Hold a Grand Opening</h3>
+          <input type="submit" value="Create" id="subcoflist">
         </form>
         <br>
       </div>
