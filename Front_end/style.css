@@ -6,8 +6,8 @@ body{
 }
 
 div #container{
-  width: 990px;
-  margin: 10px;
+  width: 100%;
+  margin: 1%;
 }
 
 #column1{
@@ -251,6 +251,36 @@ div #container{
   margin-bottom: 10px;
   background-color: #ffffcc;
 }
+
+a:link {
+    text-decoration: none;
+}
+#newcheck_line
+{
+  font-size: 50px;
+  font-family:Comic Sans MS;
+  margin-top: 50px;
+  text-align: center;
+  color: grey;
+}
+#listconstruct_line
+{
+  font-size: 50px;
+  font-family:Comic Sans MS;
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 5%;
+  height: 20%;
+  color:#00004d;
+  text-align: center;
+}
+#step2check_new{
+  width: 350px;
+  float:left;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  background-color: #ffffcc;
+}
 #step1img_signin{
   width: 400px;
   float:left;
@@ -466,6 +496,51 @@ background-color: white;
   font-family: comic sans ms;
   color:black;
 }
+input#tempnamenew1
+{
+  font-family: comic sans ms;
+  color:white;
+  font-size: 25px;
+  margin-top: 3%;
+  width: 30%;
+  float:left;
+  margin-left: 2%;
+  margin-bottom: 3%;
+  background-color: #00004d;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-decoration: none;
+}
+input#tempnamenew2
+{
+  font-family: comic sans ms;
+  color:white;
+  font-size: 25px;
+  margin-top: 3%;
+  width: 30%;
+  float:left;
+  margin-left: 2%;
+  margin-bottom: 3%;
+  background-color: #00004d;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-decoration: none;
+}
+input#tempnamenew3
+{
+  font-family: comic sans ms;
+  color:white;
+  font-size: 25px;
+  margin-top: 3%;
+  width: 30%;
+  float:left;
+  margin-left: 2%;
+  margin-bottom: 3%;
+  background-color: #00004d;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-decoration: none;
+}
 #step_2_services{
   width: 350px;
   float:left;
@@ -523,7 +598,7 @@ background-color: white;
   float:left;
   min-height:350px;
   color: Black;
-  margin-left: 70px;
+  margin-left: 45px;
   margin-right: 30px;
   margin-top: 10px;
   background-image: url('newtemplate3.jpg');
@@ -676,13 +751,198 @@ background-color: white;
 #savedcheck_title{
   width: 1420px;
   float:left;
-  min-height:250px;
+  min-height:200px;
   color: white;
   text-align: center;
   margin-left: 0px;
   margin-bottom: 40px;
   background-image: url('tempImg2.jpg');
   background-size: cover;
+}
+#listconstruct_title{
+  margin-bottom: 5%;
+  height: 20%;
+  padding-top: 0.01%;
+  padding-bottom: 2%;
+
+}
+#newcheck_title{
+
+  margin-bottom: 2%;
+  height: 10%;
+  background-color: #ffffe6;
+  padding-top: 0.01%;
+  padding-bottom: 2%;
+}
+
+
+#listcoffee_line
+{
+  margin-bottom: 5%;
+  height: 20%;
+  color:#00004d;
+  text-align: center;
+}
+#coffeebg1
+{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 25%;
+  min-height: 1050px;
+  min-width: 100px;
+  margin-top: -30px;
+  background-image: url('coffeebg2.jpg');
+  background-size: cover;
+}
+#constrbg1
+{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 25%;
+  min-height: 900px;
+  min-width: 100px;
+  margin-top: -30px;
+  background-image: url('constructlistimgrotate.jpg');
+  background-size: cover;
+}
+#ITbg1
+{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 25%;
+  min-height: 820px;
+  min-width: 100px;
+  margin-top: -30px;
+  background-image: url('itbg2.jpg');
+  background-size: cover;
+}
+#listcoffhome
+{
+  margin-top: 50px;
+  margin-bottom: -500px;
+}
+#listconstrhome
+{
+  margin-top: 50px;
+  margin-bottom: -500px;
+}
+#listIThome
+{
+  margin-top: 50px;
+  margin-bottom: -500px;
+}
+
+#listcons
+{
+  margin-left: 10%;
+  margin-right: 10%;
+  min-width: 100px;
+  min-height: 700px;
+  background-color: white;
+  opacity: 0.8;
+  color: black;
+  font-size: 30px;
+  text-indent: 30px;
+}
+input#cflist1
+{
+zoom:2;
+}input#cflist2
+{
+zoom:2;
+}input#cflist3
+{
+zoom:2;
+}input#cflist4
+{
+zoom:2;
+}input#cflist5
+{
+zoom:2;
+}input#cflist6
+{
+zoom:2;
+}
+input#cflist7
+{
+zoom:2;
+}
+input#cflist8
+{
+zoom:2;
+}
+
+input#cflist9
+{
+zoom:2;
+}
+input#cflist0
+{
+zoom:2;
+}
+input#cstlist1
+{
+zoom:2;
+}input#cstlist2
+{
+zoom:2;
+}input#cstlist3
+{
+zoom:2;
+}input#cstlist4
+{
+zoom:2;
+}input#cstlist5
+{
+zoom:2;
+}input#cstlist6
+{
+zoom:2;
+}
+input#cstlist7
+{
+zoom:2;
+}
+
+input#cstlist8
+{
+zoom:2;
+}
+
+input#cstlist9
+{
+zoom:2;
+}
+input#cstlist0
+{
+zoom:2;
+}
+input#itlist0
+{
+zoom:2;
+}
+input#itlist1
+{
+zoom:2;
+}input#itlist2
+{
+zoom:2;
+}input#itlist3
+{
+zoom:2;
+}input#itlist4
+{
+zoom:2;
+}input#itlist5
+{
+zoom:2;
+}input#itlist6
+{
+zoom:2;
+}
+input#itlist7
+{
+zoom:2;
 }
 #dashBoard_title{
   width: 1420px;
@@ -825,6 +1085,39 @@ input#olduserbutton {
     background-color: #003366;
     border-radius: 20px;
 }
+input#subcoflist {
+    width: 300px;
+    font-family: Lucida Handwriting;
+    font-size: 30px;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 30px;
+    background-color: #003366;
+    border-radius: 20px;
+}
+input#subconstrlist {
+    width: 300px;
+    font-family: Lucida Handwriting;
+    font-size: 30px;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 30px;
+    background-color: #003366;
+    border-radius: 20px;
+}
+input#subITlist {
+    width: 300px;
+    font-family: Lucida Handwriting;
+    font-size: 30px;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 30px;
+    background-color: #003366;
+    border-radius: 20px;
+}
 input#newtemp{
     width: 100px;
     font-family: Lucida Handwriting;
@@ -894,17 +1187,24 @@ input#tempsubmit{
 #savedcheck_line2{
     font-size: 50px;
     font-family:Comic Sans MS;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-bottom: 0px;
     text-shadow: 4px 4px #003300;
 }
 #tag_h1{
     font-family:Comic Sans MS;
+    text-align: center;
 }
 
 #tag_h1_about{
   font-family:Comic Sans MS;
   color: #000066;
+}
+#acknw{
+  font-family:Comic Sans MS;
+  color: #008000;
+  margin-top: 100px;
+  text-align: center;
 }
 #tag_h1_about_2{
   font-family:Helvetica;
@@ -917,6 +1217,7 @@ header{
   text-indent: 1px;
   color: white;
   margin-top: 30px;
+  min-width: 1000px;;
   font-size: 12px;
 }
 
@@ -929,6 +1230,13 @@ header{
 }
 #main_savedcheck{
   min-height:650px;
+  background-color: white;
+  background-size: cover;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+#main_newcheck{
+  min-height:450px;
   background-color: white;
   background-size: cover;
   overflow: hidden;
@@ -974,6 +1282,7 @@ footer{
     position: relative;
     z-index:1000;
 }
+
 #ul1_newcheck{
     list-style:none;
     list-style-position: inside;
@@ -994,6 +1303,7 @@ footer{
     list-style:none;
     list-style-position: inside;
     padding-left:1000px;
+    min-width: 20%;
     margin: 0;
     position: absolute;
     padding-top: 3px;
