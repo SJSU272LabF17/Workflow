@@ -5,6 +5,17 @@ body:after  {content:' ';position:fixed;display:block;top:0;left:0;right:0;borde
   float:left;
   margin-right: 50px;
 }
+input#buttonsub1{
+width: 200px;
+font-family: Lucida Handwriting;
+font-size: 20px;
+color: white;
+padding-top: 5px;
+padding-bottom: 5px;
+margin-left: 30px;
+background-color: #003366;
+border-radius: 20px;
+}
 #sub8
 {
   width: 200px;

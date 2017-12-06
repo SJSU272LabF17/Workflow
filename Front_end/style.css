@@ -9,7 +9,48 @@ div #container{
   width: 100%;
   margin: 1%;
 }
-
+input#checkname1
+{
+  border-style: solid;
+  border-width: medium;
+min-height: 20px;
+font-size: 30px;
+width: 45%;
+padding: 10px;
+background-color: white;
+opacity: 10px;
+font-size: 25px;
+border-color: orange;
+border-radius: 2px;
+}
+input#checkname2
+{
+  border-style: solid;
+    border-width: medium;
+min-height: 20px;
+font-size: 30px;
+width: 45%;
+padding: 10px;
+background-color: white;
+opacity: 10px;
+font-size: 25px;
+border-color: orange;
+border-radius: 2px;
+}
+input#checkname3
+{
+  border-style: solid;
+    border-width: medium;
+min-height: 20px;
+font-size: 30px;
+width: 45%;
+padding: 10px;
+background-color: white;
+opacity: 10px;
+font-size: 25px;
+border-color: orange;
+border-radius: 2px;
+}
 #column1{
   width: 400px;
   float:left;
@@ -477,7 +518,7 @@ background-color: white;
 
 #step_1_temp{
   width: 350px;
-  float:left;
+  display:inline-block;
   min-height:380px;
   color: Black;
   margin-top: 10px;
@@ -657,7 +698,7 @@ input#tempnamenew3
 }
 #step_2_temp{
   width: 350px;
-  float:left;
+  display:inline-block;
   min-height:380px;
   color: Black;
   margin-left: 78px;
@@ -681,7 +722,7 @@ input#tempnamenew3
 
 #step_3_temp{
   width: 350px;
-  float:left;
+  display:inline-block;
   min-height:380px;
   color: Black;
   margin-left: 70px;
@@ -788,7 +829,7 @@ input#tempnamenew3
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 25%;
-  min-height: 1050px;
+  min-height: 1150px;
   min-width: 100px;
   margin-top: -30px;
   background-image: url('coffeebg2.jpg');
@@ -799,7 +840,7 @@ input#tempnamenew3
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 25%;
-  min-height: 900px;
+  min-height: 1000px;
   min-width: 100px;
   margin-top: -30px;
   background-image: url('constructlistimgrotate.jpg');
@@ -810,7 +851,7 @@ input#tempnamenew3
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 25%;
-  min-height: 820px;
+  min-height: 920px;
   min-width: 100px;
   margin-top: -30px;
   background-image: url('itbg2.jpg');
