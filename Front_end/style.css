@@ -267,6 +267,23 @@ border-radius: 2px;
   background-color: yellow;
   min-width: 200px;
 }
+#div1
+{
+  min-width: 300px;
+}
+#div2
+{
+  min-width: 400px;
+  margin-left: 500px;
+}
+#myh1
+{
+  color:black;
+}
+#myprog
+{
+  color:#008000;
+}
 #myprogdetail2
 {
   width: 100px;
@@ -276,6 +293,10 @@ border-radius: 2px;
   background-color: #003366;
   border-radius: 2px;
 }
+#myh2
+{
+  color:black;
+}
 #step1img_dashBoard2{
   width: 350px;
   float:left;
@@ -283,7 +304,7 @@ border-radius: 2px;
   margin-left: 0px;
   color: white;
   margin-bottom: 6px;
-  background-color: #ff8080;
+  background-color: #e6ffe6;
 }
 #step1img_temp{
   width: 350px;
@@ -639,7 +660,7 @@ input#tempnamenew3
   float:left;
   min-height:350px;
   color: Black;
-  margin-left: 45px;
+  margin-left: 60px;
   margin-right: 30px;
   margin-top: 10px;
   background-image: url('newtemplate3.jpg');
@@ -664,10 +685,9 @@ input#tempnamenew3
 }
 #step_1_dashBoard2{
   width: 350px;
-  float:left;
   min-height:50px;
   color: Black;
-  margin-left: 230px;
+  margin-left: 2%;
   margin-right: 30px;
 
   background-color: white;
@@ -988,7 +1008,7 @@ zoom:2;
 #dashBoard_title{
   width: 1420px;
   float:left;
-  min-height:250px;
+  min-height:150px;
   color: white;
   text-align: center;
   margin-left: 0px;
@@ -1225,10 +1245,10 @@ input#tempsubmit{
     margin-bottom: 0px;
     text-shadow: 4px 4px #003300;
 }
-#savedcheck_line2{
+#savedcheck_line2_1{
     font-size: 50px;
     font-family:Comic Sans MS;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 0px;
     text-shadow: 4px 4px #003300;
 }
