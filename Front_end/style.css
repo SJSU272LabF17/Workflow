@@ -58,6 +58,13 @@ border-radius: 2px;
   color: white;
   background-color:#0059b3;
 }
+#column1_dash{
+  width: 400px;
+  float:left;
+  margin-left: 2%;
+  min-height:400px;
+  background-color:white;
+}
 
 #main_homesignout
 {
@@ -152,13 +159,56 @@ border-radius: 2px;
 .toHideContainer {
     padding: 0 25px 0 30px;
 }
-
+#myprogdetail1_div
+{
+  border-style: solid;
+  border-color: grey;
+  border-width: medium;
+  min-width: 400px;
+  margin-right: 30px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  margin-left: 450px;
+  background-color: #ffffe6;
+}
+#tasktitle
+{
+  margin-top: -2%;
+  margin-bottom: -3%;
+}
+#task1
+{
+  margin-top: -2%;
+  text-indent: 25%;
+}
+#contri1
+{
+  margin-bottom: -10px;
+}
+#myprogdetail2_div
+{
+  border-style: solid;
+  border-color: grey;
+  border-width: medium;
+  min-width: 400px;
+  margin-right: 30px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  margin-left: 450px;
+  background-color: #ffffe6
+}
 #column2{
   width: 1700px;
   margin-left: 400px;
   min-height:650px;
   color: Black;
   background-color:#e6ecff;
+}
+#column2_dash{
+  width: 1400px;
+  min-height:400px;
+  color: Black;
+  text-indent: 4%;
 }
 
 #img_home{
@@ -271,6 +321,36 @@ border-radius: 2px;
 {
   min-width: 300px;
 }
+#date1
+{
+  min-height: 40px;
+  min-width: 20%;
+  font-size: 20px;
+  font-family: comic sans ms;
+  border-style: solid;
+  border-color: orange;
+  border-width: medium;
+}
+#date3
+{
+  min-height: 40px;
+  min-width: 20%;
+  font-size: 20px;
+  font-family: comic sans ms;
+  border-style: solid;
+  border-color: orange;
+  border-width: medium;
+}
+#date2
+{
+  min-height: 40px;
+  min-width: 20%;
+  font-size: 20px;
+  font-family: comic sans ms;
+  border-style: solid;
+  border-color: orange;
+  border-width: medium;
+}
 #div2
 {
   min-width: 400px;
@@ -279,6 +359,8 @@ border-radius: 2px;
 #myh1
 {
   color:black;
+  font-size: 50px;
+  background-color: inherit;
 }
 #myprog
 {
@@ -688,8 +770,6 @@ input#tempnamenew3
   min-height:50px;
   color: Black;
   margin-left: 2%;
-  margin-right: 30px;
-
   background-color: white;
   background-size: cover;
   border-bottom:3px;
@@ -781,13 +861,12 @@ input#tempnamenew3
   background-color:white;
 }
 #steps_home_dashBoard2{
-  width: 1420px;
+  width: 370px;
   float:left;
-  min-height:400px;
+  min-height:300px;
   color: #e6ffe6;
   margin-top: 0px;
   text-align: center;
-  background-color:white;
 }
 #steps_home_au{
   width: 1420px;
@@ -849,7 +928,7 @@ input#tempnamenew3
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 25%;
-  min-height: 1150px;
+  min-height: 1250px;
   min-width: 100px;
   margin-top: -30px;
   background-image: url('coffeebg2.jpg');
@@ -860,7 +939,7 @@ input#tempnamenew3
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 25%;
-  min-height: 1000px;
+  min-height: 1100px;
   min-width: 100px;
   margin-top: -30px;
   background-image: url('constructlistimgrotate.jpg');
@@ -871,7 +950,7 @@ input#tempnamenew3
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 25%;
-  min-height: 920px;
+  min-height: 1020px;
   min-width: 100px;
   margin-top: -30px;
   background-image: url('itbg2.jpg');
@@ -1252,6 +1331,13 @@ input#tempsubmit{
     margin-bottom: 0px;
     text-shadow: 4px 4px #003300;
 }
+#savedcheck_line2{
+    font-size: 80px;
+    font-family:Comic Sans MS;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    text-shadow: 4px 4px #003300;
+}
 #tag_h1{
     font-family:Comic Sans MS;
     text-align: center;
@@ -1287,6 +1373,10 @@ header{
   background-color: white;
   background-size: cover;
   overflow: hidden;
+  margin-bottom: 40px;
+}
+#main_dashboard1{
+  min-height:650px;
   margin-bottom: 40px;
 }
 #main_savedcheck{
