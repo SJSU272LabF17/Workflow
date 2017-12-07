@@ -20,19 +20,19 @@ class UserManager(models.Manager):
 
   def register(self, postData):
     errors = []
-    if len(postData['name']) < 3 :
-        errors.append('Name should be at least three characters long!')
-    if len(postData['username']) < 3:
-        errors.append('Userame should be at least three characters long!')
-    if len(postData['pw']) < 8:
-        errors.append('Passord should be at least 8 characters long!')
+    # if len(postData['name']) < 3 :
+    #     errors.append('Name should be at least three characters long!')
+    # if len(postData['username']) < 3:
+    #     errors.append('Userame should be at least three characters long!')
+    # if len(postData['pw']) < 8:
+    #     errors.append('Passord should be at least 8 characters long!')
     if User.objects.filter(username=postData['username']).first() != None:
         errors.append('Username is already registered!')
     if errors != []:
         return [False, errors]
     else:
-        user = User.objects.create(name=postData['name'], username=postData['username'], h_date=postData['h_date'], pw=bcrypt.hashpw(postData['pw'].encode('utf8'), bcrypt.gensalt()))
-        return [True, user] 
+      user = User.objects.create(username=postData['username'], name=postData['name'], pw=bcrypt.hashpw(postData['pw'].encode('utf8'), bcrypt.gensalt()))
+    return [True, user] 
 
 class ItemManager(models.Manager):
   def validate(self, postData, user_id):
@@ -49,10 +49,9 @@ class ItemManager(models.Manager):
     return [True, errors]
 
 class User(models.Model):
-  name = models.CharField(max_length=38)
   username = models.CharField(max_length=38)
+  name = models.CharField(max_length=38, default='userX')
   pw = models.CharField(max_length=38)
-  h_date = models.DateTimeField(auto_now=True)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
   objects = UserManager()

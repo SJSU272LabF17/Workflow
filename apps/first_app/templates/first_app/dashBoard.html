@@ -19,20 +19,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   </script>
   <link href='style.css' rel='stylesheet'>
-  <header>
-    <ul id="ul1_newcheck">
-      <li><a href='home'>PROCESS 9</a></li>
+<!-- navbar -->
+<header>
+    <ul id="ul1">
+      <li><a href='/'>PROCESS 9</a></li>
+      {%if user%}
+      <li>Hi, {{user.username}}</li>
+      <li><a href='logout'>LOGOUT</a> </li>
+      {% else %}
+      <li><a href='signin'>LOGIN</a> </li>
+      {% endif %}
     </ul>
     <ul id="ul2">
-      <li><a href='about'>ABOUT US</a>
-      </li>
-      <li><a href='services'>SERVICES</a>
-      </li>
+      <li><a href='about'>ABOUT US</a></li>
+      <li><a href='services'>SERVICES</a></li>
       <li><a href='contact'>CONTACT</a></li>
-      <li><a href='signIn'>LOGIN</a>
-      </li>
     </ul>
   </header>
+<!--  -->
   <div id="main_dashBoard">
     <div id="dashBoard_title">
       <h1 id="savedcheck_line2">Dashboard</h1>

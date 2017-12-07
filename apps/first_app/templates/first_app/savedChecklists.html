@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 {% load static %}
 <link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
+
+<!-- navbar -->
 <header>
-  <ul id="ul1_newcheck">
-    <li><a href='/'>PROCESS 9</a></li>
-  </ul>
-</header>
+    <ul id="ul1">
+      <li><a href='/'>PROCESS 9</a></li>
+      {%if user%}
+      <li>{{user.name}}</li>
+      <li><a href='logout'>LOGOUT</a> </li>
+      {% else %}
+      <li><a href='signin'>LOGIN</a> </li>
+      {% endif %}
+    </ul>
+    <ul id="ul2">
+      <li><a href='about'>ABOUT US</a></li>
+      <li><a href='services'>SERVICES</a></li>
+      <li><a href='contact'>CONTACT</a></li>
+    </ul>
+  </header>
+<!--  -->
 <div id="main_savedcheck">
   <div id="savedcheck_title">
     <h1 id="savedcheck_line">Templates</h1>
   </div>
-  <a href="constructmain.html">
-    <div id="step_1_temp">
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <div id="step1img_temp">
-        <h2 id="tempname1"><center>Constructing a Building</center></h2>
-      </div>
-    </div>
-  </a>
   <a href="coffeemain.html">
     <div id="step_2_temp">
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -27,15 +34,10 @@
       </div>
     </div>
   </a>
-  <a href="itmain.html">
-    <div id="step_3_temp">
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <div id="step1img_temp">
-        <h2 id="tempname1"><center>IT Deployment Process</center></h2>
-      </div>
-    </div>
-  </a>
+</div>
+</a>
 </div>
 <footer>
   Project Title: Process 9 <br> Description: CmpE 272 - Project Team 9 - Process WorkFlow Automation
 </footer>
+<!-- saved checklist -->
