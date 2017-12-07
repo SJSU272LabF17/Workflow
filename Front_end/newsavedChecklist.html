@@ -20,6 +20,27 @@
     window.onhashchange = function() {
       window.location.hash = "no-back-button";
     }
+	
+	function val(){
+	var chks= document.getElementsByName('chk[]');
+	var hasChecked= false;
+	for (var i=0; i< chks.length; i++)
+	{
+	if ( chks[i].checked)
+	{
+	hasChecked = true;
+	break;
+	}
+	}
+	if(hasChecked == false)
+	{
+	alert("Please select atleast one checkbox");
+	return false;
+	}
+	return true;
+	}
+	
+	
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   </script>
@@ -62,17 +83,18 @@
         <br>
         <form action="newsavedchecklist2.html" id="myform1">
           <h3>Checklist Title: <input type="text" id="checkname1" placeholder="Enter Checklist Title Here" ><br></h3>
-          <h3><input name='coffee' type="checkbox" id="cflist0" class="form-check-input"> Create Business Plan</h3>
-          <h3><input name='coffee' type="checkbox" id="cflist1" class="form-check-input"> Market Research</h3>
-          <h3><input name='coffee' type="checkbox" id="cflist2" class="form-check-input"> Coffee Shop Location</h3>
-          <h3><input name='coffee' type="checkbox" id="cflist3" class="form-check-input"> Create Floor Plan</h3>
-          <h3><input name='coffee' type="checkbox" id="cflist4" class="form-check-input"> Coffee Equipment Selection</h3>
-          <h3><input name='coffee' type="checkbox" id="cflist5" class="form-check-input"> Local laws and Health Regulations</h3>
-          <h3><input name='coffee' type="checkbox" id="cflist6" class="form-check-input"> Decide Coffee Menu and Prices</h3>
-          <h3><input name='coffee' type="checkbox" id="cflist7" class="form-check-input"> Sign Business Lease</h3>
-          <h3><input name='coffee' type="checkbox" id="cflist8" class="form-check-input"> Employee Hiring and Training</h3>
-          <h3><input name='coffee' type="checkbox" id="cflist9" class="form-check-input"> Hold a Grand Opening</h3>
-          <input type="submit" value="Create" id="subcoflist">
+          <h3>Due Date: <input type="date" id="date1"><br></h3>
+          <h3><input name="chk[]"  type="checkbox" id="cflist0" class="form-check-input"> Create Business Plan</h3>
+          <h3><input name= "chk[]" type="checkbox" id="cflist1" class="form-check-input"> Market Research</h3>
+          <h3><input name= "chk[]" type="checkbox" id="cflist2" class="form-check-input"> Coffee Shop Location</h3>
+          <h3><input name= "chk[]" type="checkbox" id="cflist3" class="form-check-input"> Create Floor Plan</h3>
+          <h3><input name= "chk[]" type="checkbox" id="cflist4" class="form-check-input"> Coffee Equipment Selection</h3>
+          <h3><input name= "chk[]" type="checkbox" id="cflist5" class="form-check-input"> Local laws and Health Regulations</h3>
+          <h3><input name= "chk[]" type="checkbox" id="cflist6" class="form-check-input"> Decide Coffee Menu and Prices</h3>
+          <h3><input name= "chk[]" type="checkbox" id="cflist7" class="form-check-input"> Sign Business Lease</h3>
+          <h3><input name= "chk[]" type="checkbox" id="cflist8" class="form-check-input"> Employee Hiring and Training</h3>
+          <h3><input name= "chk[]" type="checkbox" id="cflist9" class="form-check-input"> Hold a Grand Opening</h3>
+          <input name="submit" type="submit" value="Create" id="subcoflist" onclick="return val();">
         </form>
         <br>
       </div>
@@ -86,15 +108,16 @@
         <br>
         <form action="newsavedchecklist2.html">
           <h3>Checklist Title: <input type="text" id="checkname2" placeholder="Enter Checklist Title Here" ><br></h3>
-          <h3><input type="checkbox" id="cstlist0"> Construction Planning</h3>
-          <h3><input type="checkbox" id="cstlist1"> Environmental Testing and Surveying</h3>
-          <h3><input type="checkbox" id="cstlist4"> Buying the Land for Construction</h3>
-          <h3><input type="checkbox" id="cstlist3"> Construction Design</h3>
-          <h3><input type="checkbox" id="cstlist5"> Pre-Construction</h3>
-          <h3><input type="checkbox" id="cstlist6"> Procurement</h3>
-          <h3><input type="checkbox" id="cstlist7"> Construction Phase</h3>
-          <h3><input type="checkbox" id="cstlist8"> Post-Construction Phase</h3>
-          <input type="submit" value="Create" id="subconstrlist">
+          <h3>Due Date: <input type="date" id="date2"><br></h3>
+          <h3><input name="chk[]" type="checkbox" id="cstlist0"> Construction Planning</h3>
+          <h3><input name="chk[]" type="checkbox" id="cstlist1"> Environmental Testing and Surveying</h3>
+          <h3><input name="chk[]" type="checkbox" id="cstlist4"> Buying the Land for Construction</h3>
+          <h3><input name="chk[]" type="checkbox" id="cstlist3"> Construction Design</h3>
+          <h3><input name="chk[]" type="checkbox" id="cstlist5"> Pre-Construction</h3>
+          <h3><input name="chk[]" type="checkbox" id="cstlist6"> Procurement</h3>
+          <h3><input name="chk[]" type="checkbox" id="cstlist7"> Construction Phase</h3>
+          <h3><input name="chk[]" type="checkbox" id="cstlist8"> Post-Construction Phase</h3>
+          <input name= "submit" type="submit" value="Create" id="subconstrlist" onclick="return val();">
         </form>
         <br>
       </div>
@@ -108,14 +131,15 @@
         <br>
         <form action="newsavedchecklist2.html">
           <h3>Checklist Title: <input type="text" id="checkname3" placeholder="Enter Checklist Title Here" ><br></h3>
-          <h3><input type="checkbox" id="itlist0"> Project Planning</h3>
-          <h3><input type="checkbox" id="itlist1"> Requirement Gathering and Analysis</h3>
-          <h3><input type="checkbox" id="itlist4"> Design</h3>
-          <h3><input type="checkbox" id="itlist3"> Coding</h3>
-          <h3><input type="checkbox" id="itlist5"> Testing</h3>
-          <h3><input type="checkbox" id="itlist6"> Deployment</h3>
-          <h3><input type="checkbox" id="itlist7"> Maintenance and Support Phase</h3>
-          <input type="submit" value="Create" id="subITlist">
+          <h3>Due Date: <input type="date" id="date3"><br></h3>
+          <h3><input name= "chk[]" type="checkbox" id="itlist0"> Project Planning</h3>
+          <h3><input name= "chk[]" type= "checkbox" id="itlist1"> Requirement Gathering and Analysis</h3>
+          <h3><input name= "chk[]" type="checkbox" id="itlist4"> Design</h3>
+          <h3><input name= "chk[]" type="checkbox" id="itlist3"> Coding</h3>
+          <h3><input name= "chk[]" type="checkbox" id="itlist5"> Testing</h3>
+          <h3><input name= "chk[]" type="checkbox" id="itlist6"> Deployment</h3>
+          <h3><input name= "chk[]" type="checkbox" id="itlist7"> Maintenance and Support Phase</h3>
+          <input name= "submit" type="submit" value="Create" id="subITlist" onclick="return val();">
         </form>
         <br>
       </div>

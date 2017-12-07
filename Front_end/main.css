@@ -5,6 +5,17 @@ body:after  {content:' ';position:fixed;display:block;top:0;left:0;right:0;borde
   float:left;
   margin-right: 50px;
 }
+#comp1
+{
+  height: 30px;
+  padding-left: 10px;
+  width: 180px;
+  font-size: 20px;
+  border-style: solid;
+  border-color: #00004d;
+  border-width: medium;
+  margin-left: 10px;
+}
 input#buttonsub1{
 width: 200px;
 font-family: Lucida Handwriting;
@@ -12,10 +23,11 @@ font-size: 20px;
 color: white;
 padding-top: 5px;
 padding-bottom: 5px;
-margin-left: 30px;
+margin-left: 50px;
 background-color: #003366;
 border-radius: 20px;
 }
+
 #sub8
 {
   width: 200px;
