@@ -65,3 +65,22 @@ class Item(models.Model):
   author = models.ForeignKey(User, related_name="created_items")
   wished_users = models.ManyToManyField(User, related_name="wished_items")
 
+class Container(models.Model):
+    user = models.ForeignKey(User, related_name="user_id")
+    title = models.CharField(max_length=38)
+    template = models.CharField(max_length=50)
+    due_date = models.DateTimeField()
+
+
+class Checklist(models.Model):
+    container = models.ForeignKey(Container, related_name="container_id")
+    name = models.CharField(max_length=50)
+    due_date = models.DateField()
+    status = models.CharField(max_length=38)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Field(models.Model):
+    checklist = models.ForeignKey(Checklist, related_name="checklist_id")
+    field = models.TextField()
+    content = models.TextField()
