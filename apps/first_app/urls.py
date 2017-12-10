@@ -1,33 +1,32 @@
 from django.conf.urls import url
 from . import views
 urlpatterns = [
+  # home page
   url(r'^$', views.home),
-  # url(r'^index$', views.index),
-  url(r'^register$', views.register),
-  url(r'^login$', views.login),
-  url(r'^logout$', views.logout),
-  url(r'^create$', views.create_new),
-  url(r'^chngPswd$', views.chngPswd),
-  url(r'^contact$', views.contact),
-  url(r'^contributors$', views.contributors),
-  url(r'^project$', views.project),
-  url(r'^sampleChecklist$', views.sampleChecklist),
   url(r'^about$', views.about),
   url(r'^contact$', views.contact),
   url(r'^services$', views.services),
+  # user account
+  url(r'^register$', views.register),
+  url(r'^login$', views.login),
+  url(r'^logout$', views.logout),
   url(r'^signin$', views.signin),
-  url(r'^about$', views.about),
-  # url(r'^savechecklist$', views.savechecklist),
-  url(r'^newchecklist$', views.newchecklist),
+    # url(r'^chngPswd$', views.chngPswd),
+# dashboard
   url(r'^dashBoard$', views.dashBoard),
-  url(r'^checklist$', views.checklist),
+# show templates
   url(r'^templates$', views.showTemplates),
-  url(r'^savedChecklists$', views.savedChecklists),
   url(r'^constructmain$', views.constructmain),
   url(r'^coffeemain$', views.coffeemain),
   url(r'^itmain$', views.itmain),
-
-  # url(r'^create_process$', views.create_process),
+# checklist
+  url(r'^newchecklist$', views.newchecklist),
+  url(r'^create$', views.create_new),
+  url(r'^createSuccess$', views.createSuccess),
+  url(r'^checklist$', views.checklist),
+ 
+  url(r'^savedChecklists$', views.savedChecklists),
+  
   # url(r'^wish_items/(?P<item_id>\d+)$', views.item),
   # url(r'^add_wish/(?P<item_id>\d+)$', views.add_wish),
   # url(r'^remove_wish/(?P<item_id>\d+)$', views.remove_wish),

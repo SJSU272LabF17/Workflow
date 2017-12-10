@@ -1,17 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import User, Item
+from .models import User, Container, Checklist, Field, Item
 
 def home(request):
-    try:
-        this_user = User.objects.filter(id=request.session['user_id']).first()
-        context = {
-        'user': this_user,
-        'items': Item.objects.all()
-        }
-        print (context, "is opening homepage")
-    except:
-        context = {}
+    # try:
+    this_user = User.objects.filter(id=request.session['user_id']).first()
+    context = {
+    'user': this_user,
+    'items': Item.objects.all()
+    }
+    print (context, "is opening homepage")
+    # except:
+    #     context = {}
+    # print ("find the user is", User.objects.filter(id=request.session['user_id']).first())
+    # print ("userid is", request.session['user_id'])
+    # print (context, "is opening homepage")
     return render(request, 'first_app/home.html', context)
 
 def register(request):
@@ -42,43 +45,47 @@ def login(request):
             messages.error(request, error)
         return redirect('/signin')
     else:
+       
         request.session['user_id'] = result[1].id
+        print (request.session['user_id'], "is logged in")
         return redirect('/')
 
 def logout(request):
     request.session['user_id'] = None
-    return redirect('/')
-
-# def dashboard_1(request):
-#     this_user = User.objects.filter(id=request.session['user_id']).first()
-#     context = {
-#     'user': this_user,
-#     'items': Item.objects.all()
-#     }
-#     return render(request, 'first_app/dashboard_1.html', context)
+    return redirect('/signin')
 
 def create_new(request):
     this_user = User.objects.filter(id=request.session['user_id']).first()
-    context = {
-    'user': this_user,
-    'items': Item.objects.all()
+    title = request.POST.get('title', False)
+    date = request.POST.get('date', False)
+    temp = request.POST.get('temp', False)
+    postData = {
+    'title': title,
+    'date': date,
+    'temp': temp
     }
-    return render(request, 'first_app/newChecklist.html', context)
+    newContainer = Container.objects.create(title=postData['title'], due_date=postData['date'], author=this_user, template=postData['temp'])
+    # result = Container.objects.validate(postData, request.session['user_id'])
+    # if result[0] == False:
+    #     for error in result[1]:
+    #         messages.error(request, error)
+    #     return redirect('create_new')
+    # else:
+        # return redirect('/createSuccess') 
+    print ("db result is adding", newContainer)
+    return redirect('/createSuccess')
 
-# def create_process(request):
-#     name = request.POST.get('name', False)
-#     # print name
-#     postData = {
-#     'name': name,
-#     }
-#     result = Item.objects.validate(postData, request.session['user_id'])
-#     if result[0] == False:
-#         for error in result[1]:
-#             messages.error(request, error)
-#         return redirect('/wish_items/create')
-#     else:
-#         return redirect('/') 
-
+def createSuccess(request):
+    try:
+        this_user = User.objects.filter(id=request.session['user_id']).first()
+        context = {
+        'user': this_user,
+        'items': Item.objects.all()
+        }
+        print (context, "is opening homepage")
+    except:
+        context = {}
+    return render(request, 'first_app/createSuccess.html', context)
 # def item(request, item_id):
 #     item = Item.objects.filter(id=item_id).first()
 #     context = {

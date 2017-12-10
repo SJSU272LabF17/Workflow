@@ -6,11 +6,8 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-      <!-- <link rel="stylesheet" href="font-awesome.min.css">
-      <link rel="stylesheet" href="main.css"> -->
       <link href="{% static '/first_app/main.css' %}" rel='stylesheet'>
       <link href="{% static '/first_app/font-awesome.min.css' %}" rel='stylesheet'>
-      <!-- <link href="{% static '/first_app/style.css' %}" rel='stylesheet'> -->
     </head>
     
     <script type="text/javascript">
@@ -20,21 +17,25 @@
         window.location.hash = "no-back-button";
       }
     </script>
-    
+
     <body>
       <div id="headercons">
         <ul id="ul1_newcheck">
-          <li id="li1"><a href='savedChecklist.html'>BACK</a></li>
+          <li id="li1"><a href='newchecklist'>BACK</a></li>
+        {%if user%}
+        <li id="li1">Hi, {{user.username}}</li>
+        <li id="li1"><a href='logout'>LOGOUT</a> </li>
+        {% else %}
+        <li id="li1"><a href='signin'>LOGIN</a> </li>
+        {% endif %}
         </ul>
         <ul id="ul2">
-          <li id="li1"><a href='home.html' id>PROCESS 9</a></li>
-          <li id="li1"><a href='about.html'>ABOUT US</a>
+          <li id="li1"><a href='/' id>PROCESS 9</a></li>
+          <li id="li1"><a href='about'>ABOUT US</a>
           </li>
-          <li id="li1"><a href='services.html'>SERVICES</a>
+          <li id="li1"><a href='services'>SERVICES</a>
           </li>
-          <li id="li1"><a href='contact.html'>CONTACT</a></li>
-          <li id="li1"><a href='signIn.html'>LOGIN</a>
-          </li>
+          <li id="li1"><a href='contact'>CONTACT</a></li>
         </ul>
       </div>
       <br>
@@ -160,7 +161,9 @@
       </div>
       <div class="checklist-information--container">
         <div class="checklist-information--pane">
+          {% if not user %}
           <h4 id="toget">Get this Checklist?<br>Please Login</h4>
+          {% endif %}
           <div id="section-1">
             <br>
             <br>

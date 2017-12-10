@@ -64,7 +64,7 @@
       <br><br><br>
       <div id="listcons">
         <br>
-        <form action="newsavedchecklist2.html" id="myform1">
+        <form action="/create" method="post">
           <h3>Checklist Title: <input type="text" id="checkname1" placeholder="Enter Checklist Title Here" ><br></h3>
           <h3>Due Date: <input type="date" id="date1"><br></h3>
           <h3><input name='coffee' type="checkbox" id="cflist0" class="form-check-input"> Create Business Plan</h3>
@@ -89,17 +89,19 @@
       <br><br><br>
       <div id="listcons">
         <br>
-        <form action="newsavedchecklist2.html">
-          <h3>Checklist Title: <input type="text" id="checkname2" placeholder="Enter Checklist Title Here" ><br></h3>
-          <h3>Due Date: <input type="date" id="date2"><br></h3>
-          <h3><input type="checkbox" id="cstlist0"> Construction Planning</h3>
-          <h3><input type="checkbox" id="cstlist1"> Environmental Testing and Surveying</h3>
-          <h3><input type="checkbox" id="cstlist4"> Buying the Land for Construction</h3>
-          <h3><input type="checkbox" id="cstlist3"> Construction Design</h3>
-          <h3><input type="checkbox" id="cstlist5"> Pre-Construction</h3>
-          <h3><input type="checkbox" id="cstlist6"> Procurement</h3>
-          <h3><input type="checkbox" id="cstlist7"> Construction Phase</h3>
-          <h3><input type="checkbox" id="cstlist8"> Post-Construction Phase</h3>
+        <form action="/create" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="temp" value="building">
+          <h3>Checklist Title: <input type="text" id="checkname2" placeholder="Enter Checklist Title Here" name="title"><br></h3>
+          <h3>Due Date: <input type="date" id="date2" name="date"><br></h3>
+          <h3><input type="checkbox" id="cstlist0" name="sections" value="1"> Construction Planning</h3>
+          <h3><input type="checkbox" id="cstlist1" name="sections" value="2"> Environmental Testing and Surveying</h3>
+          <h3><input type="checkbox" id="cstlist4" name="sections" value="3"> Buying the Land for Construction</h3>
+          <h3><input type="checkbox" id="cstlist3" name="sections" value="4"> Construction Design</h3>
+          <h3><input type="checkbox" id="cstlist5" name="sections" value="5"> Pre-Construction</h3>
+          <h3><input type="checkbox" id="cstlist6" name="sections" value="6"> Procurement</h3>
+          <h3><input type="checkbox" id="cstlist7" name="sections" value="7"> Construction Phase</h3>
+          <h3><input type="checkbox" id="cstlist8" name="sections" value="8"> Post-Construction Phase</h3>
           <input type="submit" value="Create" id="subconstrlist">
         </form>
         <br>
@@ -112,7 +114,7 @@
       <br><br><br>
       <div id="listcons">
         <br>
-        <form action="newsavedchecklist2.html">
+        <form action="/create" method="post">
           <h3>Checklist Title: <input type="text" id="checkname3" placeholder="Enter Checklist Title Here" ><br></h3>
           <h3>Due Date: <input type="date" id="date3"><br></h3>
           <h3><input type="checkbox" id="itlist0"> Project Planning</h3>
