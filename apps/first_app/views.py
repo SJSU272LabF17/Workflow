@@ -59,19 +59,21 @@ def create_new(request):
     title = request.POST.get('title', False)
     date = request.POST.get('date', False)
     temp = request.POST.get('temp', False)
+    sections = request.POST.get('sections', False)
     postData = {
     'title': title,
     'date': date,
     'temp': temp
     }
     newContainer = Container.objects.create(title=postData['title'], due_date=postData['date'], author=this_user, template=postData['temp'])
-    # result = Container.objects.validate(postData, request.session['user_id'])
-    # if result[0] == False:
-    #     for error in result[1]:
-    #         messages.error(request, error)
-    #     return redirect('create_new')
-    # else:
-        # return redirect('/createSuccess') 
+    for s in sections:
+        Checklist.objects.create(container=newContainer, due_date=postData['date'], status="")
+    # container = models.ForeignKey(Container, related_name="container_id")
+    # number = models.CharField(max_length=50)
+    # due_date = models.DateField()
+    # status = models.CharField(max_length=38)
+    # updated_at = models.DateTimeField(auto_now=True)
+    # taker = models.ForeignKey(User, related_name="taked_lists")
     print ("db result is adding", newContainer)
     return redirect('/createSuccess')
 
