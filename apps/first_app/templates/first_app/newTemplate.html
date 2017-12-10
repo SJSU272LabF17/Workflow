@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+<link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
+
+<!-- navbar -->
+<header>
+    <ul id="ul1">
+      <li><a href='/'>PROCESS 9</a></li>
+      {%if user%}
+      <li>Hi, {{user.username}}</li>
+      <li><a href='logout'>LOGOUT</a> </li>
+      {% else %}
+      <li><a href='signin'>LOGIN</a> </li>
+      {% endif %}
+    </ul>
+    <ul id="ul2">
+      <li><a href='about'>ABOUT US</a></li>
+      <li><a href='services'>SERVICES</a></li>
+      <li><a href='contact'>CONTACT</a></li>
+    </ul>
+  </header>
+<!--  -->
+<div id="main_newchecklist">
+  <div id="template_1">
+    <h1 id="logintag">Create New Template</h1>
+    <br> <br>
+    <div>
+      <form id="tempform">
+        <input type="text" placeholder="Template Name" id="tempname">
+        <input type="submit" value="Create" id="tempsubmit">
+      </form>
+    </div>
+  </div>
+</div>
+<footer>
+  Project Title: Process 9 <br> Description: CmPE 272 - Project Team 9 - Process WorkFlow Automation
+</footer>

@@ -1690,3 +1690,13 @@ ul li a:hover{
   position: relative;
   z-index:1000;
 }
+
+input#namesignup
+{
+  min-width: 350px;
+  min-height:58px;
+  font-family: Lucida Handwriting;
+  font-size: 20px;
+  padding-left: 10px;
+  color: black;
+}

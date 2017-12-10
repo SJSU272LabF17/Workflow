@@ -15,61 +15,159 @@
         $("#myprogdetail2_div").show();
       }
     }
+
+    window.location.hash = "no-back-button";
+    window.location.hash = "Again-No-back-button"; //again because google chrome don't insert first hash into history
+    window.onhashchange = function() {
+      window.location.hash = "no-back-button";
+    }
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   </script>
-  <link href='style.css' rel='stylesheet'>
-  <header>
-    <ul id="ul1_newcheck">
-      <li><a href='home'>PROCESS 9</a></li>
+
+<!-- navbar -->
+<header>
+    <ul id="ul1">
+      <li><a href='/'>PROCESS 9</a></li>
+      {%if user%}
+      <li>Hi, {{user.username}}</li>
+      <li><a href='logout'>LOGOUT</a> </li>
+      {% else %}
+      <li><a href='signin'>LOGIN</a> </li>
+      {% endif %}
     </ul>
     <ul id="ul2">
-      <li><a href='about'>ABOUT US</a>
-      </li>
-      <li><a href='services'>SERVICES</a>
-      </li>
+      <li><a href='about'>ABOUT US</a></li>
+      <li><a href='services'>SERVICES</a></li>
       <li><a href='contact'>CONTACT</a></li>
-      <li><a href='signIn'>LOGIN</a>
-      </li>
     </ul>
   </header>
-  <div id="main_dashBoard">
-    <div id="dashBoard_title">
-      <h1 id="savedcheck_line2">Dashboard</h1>
-    </div>
-    <div id="steps_home_dashBoard2">
-      <a href="dashBoard">
+<!--  -->
+
+  <div id="dashBoard_title">
+    <h1 id="savedcheck_line2_1">Dashboard</h1>
+  </div>
+  <div id="main_dashboard1">
+    <div id="column1_dash">
+      <div id="steps_home_dashBoard2">
         <div id="step_1_dashBoard2">
           <br>
           <div id="step1img_dashBoard2">
-            <h2><center>Setting up a Coffee Shop</center></h2>
+            <h2 id="myh2"><center>Setting up a Coffee Shop</center></h2>
           </div>
           <br><br>
           <form>
-            <h2 id="myprog">Progress : 30% <input type="button" value="Detail" id="myprogdetail1" onclick="toggleContainer('myprogdetail1')"></h2>
+            <h2 id="myprog">Progress : 30% <input type="button" value="Details" id="myprogdetail1" onclick="toggleContainer('myprogdetail1')"></h2>
         </div>
-      </a>
-      <a href="dashBoard">
-        <div id="step_1_dashBoard2">
+        <br>
+        <br>
+        <!-- <div id="step_1_dashBoard2">
           <br>
           <div id="step1img_dashBoard2">
-            <h2><center>Constructing a Building</center></h2>
+            <h2 id="myh2"><center>Constructing a Building</center></h2>
           </div>
           <br><br>
-          <h2 id="myprog">Progress : 70% <input type="button" value="Detail" id="myprogdetail2" onclick="toggleContainer('myprogdetail2')"></h2>
+          <h2 id="myprog">Progress : 70% <input type="button" value="Details" id="myprogdetail2" onclick="toggleContainer('myprogdetail2')"></h2>
           </form>
-        </div>
-      </a>
-      <div id="myprogdetail1_div" class="toHideContainer" style="display: none">
-        <h1>Part 1</h1>
-      </div>
-      <div id="myprogdetail2_div" class="toHideContainer" style="display: none">
-        <h1>Part2</h1>
+        </div> -->
       </div>
     </div>
-    <footer>
-      Project Title: Process 9 <br> Description: CmpE 272 - Project Team 9 - Process WorkFlow Automation
-    </footer>
+    <!-- <div id="column2_dash">
+      <h1>Hello This is column 2</h1> -->
+    <div id="myprogdetail1_div" class="toHideContainer" style="display: none">
+      <h1 id="myh1">Setting up a Coffee Shop</h1>
+      <h2 id="contri1">Contributors: </h2>
+      <h3 id="contri2">Uttara Kulkarni<br>Lu Yu<br>Rohan Kelkar<br>Hsien Fang Liu</h3>
+      <h2 id="contri1">Statistics:</h2>
+      <br>
+      <h2>Checklist Progress &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Performance</h2>
+      <div id="pie1">
+        <div class="pie" data-start="0" data-value="54"></div>
+        <div class="pie highlight" data-start="54" data-value="36"></div>
+        <div class="pie" data-start="90" data-value="18"></div>
+        <div class="pie big" data-start="108" data-value="252"></div>
+      </div>
+
+      <div class='barcontainer'>
+        <!-- <div class='barcontainerheader'>
+          Contributors
+        </div> -->
+        <div class='bar' style='height:60%'>
+          15%
+          <div class='barlabel'>
+            Lu
+          </div>
+        </div>
+        <div class='bar' style='height:15%'>
+          5%
+          <div class='barlabel'>
+            Rohan
+          </div>
+        </div>
+        <div class='bar' style='height:30%'>
+          10%
+          <div class='barlabel'>
+            Uttara
+          </div>
+        </div>
+        <div class='bar' style='height:2%'>
+          <div class='barlabel'>
+            Hsien </div>
+        </div>
+      </div>
+      <br><br>
+      <div id="index1">
+        <input type="text" id="box1"> No action<br>
+        <input type="text" id="box2"> In Progress<br>
+        <input type="text" id="box3"> Completed<br>
+        <input type="text" id="box4"> Locked<br>
+      </div>
+      <h2 id="contri1">Details: </h2>
+      <h3>Due Date: 12/11/2017</h3>
+      <table style="width:100%" id="coffeetable">
+        <tr id="tr1">
+          <th>Task No.</th>
+          <th>Task Title</th>
+          <th>Contributor</th>
+          <th>Status</th>
+          <th>Modified On</th>
+        </tr>
+        <tr id="tr1">
+          <td>1</td>
+          <td>Create Business Plan</td>
+          <td>Lu Yu</td>
+          <td>Completed</td>
+          <td>12/08/2017</td>
+        </tr>
+        <tr id="tr1">
+          <td>2</td>
+          <td>Market Research</td>
+          <td>Uttara Kulkarni</td>
+          <td>In Progress</td>
+          <td>12/02/2017</td>
+        </tr>
+        <tr id="tr1">
+          <td>3</td>
+          <td>Decide Coffee Menu and Prices</td>
+          <td>Hsien Fang Liu</td>
+          <td>Locked</td>
+          <td>12/05/2017</td>
+        </tr>
+      </table>
+
+    </div>
+    <div id="myprogdetail2_div" class="toHideContainer" style="display: none">
+      <h1 id="myh1">Part2</h1>
+    </div>
+    <!-- </div> -->
+  </div>
+  <footer>
+    Project Title: Process 9 <br> Description: CmpE 272 - Project Team 9 - Process WorkFlow Automation
+  </footer>
 </body>
 
 </html>

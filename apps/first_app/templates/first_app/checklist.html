@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+
+{% load static %}
+<link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
+
+<link href='style.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div id="container">
+<!-- navbar -->
+<header>
+    <ul id="ul1">
+      <li><a href='/'>PROCESS 9</a></li>
+      {%if user%}
+      <li>Hi, {{user.username}}</li>
+      <li><a href='logout'>LOGOUT</a> </li>
+      {% else %}
+      <li><a href='signin'>LOGIN</a> </li>
+      {% endif %}
+    </ul>
+    <ul id="ul2">
+      <li><a href='about'>ABOUT US</a></li>
+      <li><a href='services'>SERVICES</a></li>
+      <li><a href='contact'>CONTACT</a></li>
+    </ul>
+  </header>
+<!--  -->
+</div>
+<div id="main_services">
+  <div id="img_tempimg">
+  </div>
+  <h1 id="text_services">Choose from below to create new checklist or work on saved ones</h1>
+  <div id="steps_home_services">
+    <br><br>
+    {% if user %}
+    <a href="newchecklist">
+    {% endif %}
+      <div id="step_1_services">
+        <br>
+        <div id="step1img_services">
+          <h2><center>Create New Checklist {% if not user %}<i class="fa fa-lock" style="font-size:24px"></i>{% endif %}</center></h2>
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+      </div>
+      <a href="templates">
+        <div id="step_3_services">
+          <br>
+          <div id="step3img_services">
+            <h2><center>Sample Templates</center></h2>
+          </div>
+          <br><br><br><br><br><br><br><br><br>
+        </div>
+      </a>
+    </a>
+    {% if user %}
+    <a href="savedChecklists">
+    {% endif %}
+      <div id="step_2_services">
+        <br>
+        <div id="step2img_services">
+          <h2><center>Saved Checklists {% if not user %}<i class="fa fa-lock" style="font-size:24px"></i>{% endif %}</center></h2>
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+      </div>
+    </a>
+
+  </div>
+  {% if not user %} <h2><i class="fa fa-unlock" style="font-size:24px"></i> Please Login to Unlock Premium Features</h2>{% endif %}
+</div>
+<footer>
+  <br> Title: Process 9 <br> CmpE 272 - Project Team 9 - Process WorkFlow Automation
+</footer>

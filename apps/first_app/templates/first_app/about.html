@@ -3,20 +3,27 @@
 {% load static %}
 <link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
 <div id="container">
+
+<!-- navbar -->
   <header>
     <ul id="ul1">
       <li><a href='/'>PROCESS 9</a></li>
+      {%if user%}
+      <li>Hi, {{user.username}}</li>
+      <li><a href='logout'>LOGOUT</a> </li>
+      {% else %}
+      <li><a href='signin'>LOGIN</a> </li>
+      {% endif %}
     </ul>
     <ul id="ul2">
-      <li><a href='about'>ABOUT US</a>
-      </li>
-      <li><a href='services'>SERVICES</a>
-      </li>
+      <li><a href='about'>ABOUT US</a></li>
+      <li><a href='services'>SERVICES</a></li>
       <li><a href='contact'>CONTACT</a></li>
-      <li><a href='signin'>LOGIN</a>
-      </li>
     </ul>
   </header>
+<!--  -->
+
+
 </div>
 <div id="main_home">
   <div id="img_aboutus">
