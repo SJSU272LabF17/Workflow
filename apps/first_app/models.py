@@ -71,12 +71,12 @@ class Container(models.Model):
 
 # section selected
 class Checklist(models.Model): 
-    container = models.ForeignKey(Container, related_name="container_id")
-    number = models.CharField(max_length=50)
+    container = models.ForeignKey(Container, related_name="contained_lists")
+    number =  models.IntegerField(default=0)
     due_date = models.DateField()
     status = models.CharField(max_length=38)
     updated_at = models.DateTimeField(auto_now=True)
-    taker = models.ForeignKey(User, related_name="taked_lists")
+    holder = models.ForeignKey(User, related_name="taked_lists", default=None, null=True)
 
 class Field(models.Model):
     checklist = models.ForeignKey(Checklist, related_name="checklist_id")

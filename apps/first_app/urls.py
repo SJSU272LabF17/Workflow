@@ -26,7 +26,9 @@ urlpatterns = [
   url(r'^checklist$', views.checklist),
  
   url(r'^savedChecklists$', views.savedChecklists),
-  
+  # test
+  url(r'^test$', views.test),
+  url(r'^testnew$', views.test_new),
   # url(r'^wish_items/(?P<item_id>\d+)$', views.item),
   # url(r'^add_wish/(?P<item_id>\d+)$', views.add_wish),
   # url(r'^remove_wish/(?P<item_id>\d+)$', views.remove_wish),

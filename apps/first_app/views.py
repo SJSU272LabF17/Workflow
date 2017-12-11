@@ -1,6 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import User, Container, Checklist, Field, Item
+import json
+
+def test(request):
+    return render(request, 'first_app/test.html')
+def test_new(request):
+    print (request.POST.get('interest'))
+    return redirect('/test')
 
 def home(request):
     # try:
@@ -59,7 +66,8 @@ def create_new(request):
     title = request.POST.get('title', False)
     date = request.POST.get('date', False)
     temp = request.POST.get('temp', False)
-    sections = request.POST.get('sections', False)
+    sections = request.POST.getlist('sections', False)
+    # print ("sections are", sections)
     postData = {
     'title': title,
     'date': date,
@@ -67,14 +75,9 @@ def create_new(request):
     }
     newContainer = Container.objects.create(title=postData['title'], due_date=postData['date'], author=this_user, template=postData['temp'])
     for s in sections:
-        Checklist.objects.create(container=newContainer, due_date=postData['date'], status="")
-    # container = models.ForeignKey(Container, related_name="container_id")
-    # number = models.CharField(max_length=50)
-    # due_date = models.DateField()
-    # status = models.CharField(max_length=38)
-    # updated_at = models.DateTimeField(auto_now=True)
-    # taker = models.ForeignKey(User, related_name="taked_lists")
-    print ("db result is adding", newContainer)
+        newChecklist = Checklist.objects.create(container=newContainer, due_date=postData['date'], number=s)
+        # print (newChecklist, "is added")
+    # print ("db result is adding", newContainer)
     return redirect('/createSuccess')
 
 def createSuccess(request):
@@ -88,6 +91,11 @@ def createSuccess(request):
     except:
         context = {}
     return render(request, 'first_app/createSuccess.html', context)
+
+def delete(request, container_id):
+    Container.objects.filter(id=container_id).first().delete()
+    return redirect('/dashboard')
+
 # def item(request, item_id):
 #     item = Item.objects.filter(id=item_id).first()
 #     context = {
@@ -111,17 +119,17 @@ def createSuccess(request):
 #     Item.objects.filter(id=item_id).first().delete()
 #     return redirect('/dashboard')
 
-def chngPswd(request):
-    try:
-        this_user = User.objects.filter(id=request.session['user_id']).first()
-        context = {
-        'user': this_user,
-        'items': Item.objects.all()
-        }
-        print (context, "is opening homepage")
-    except:
-        context = {}
-    return render(request, 'first_app/chngPswd.html', context)
+# def chngPswd(request):
+#     try:
+#         this_user = User.objects.filter(id=request.session['user_id']).first()
+#         context = {
+#         'user': this_user,
+#         'items': Item.objects.all()
+#         }
+#         print (context, "is opening homepage")
+#     except:
+#         context = {}
+#     return render(request, 'first_app/chngPswd.html', context)
 
 def contact(request):
     try:
@@ -248,9 +256,9 @@ def dashBoard(request):
         this_user = User.objects.filter(id=request.session['user_id']).first()
         context = {
         'user': this_user,
-        'items': Item.objects.all()
+        'checklists': Container.objects.all()
         }
-        print (context, "is opening homepage")
+        print (context, "is passed into dashboard")
     except:
         context = {}
     return render(request, 'first_app/dashBoard.html', context)

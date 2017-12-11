@@ -48,6 +48,26 @@
     <h1 id="savedcheck_line2_1">Dashboard</h1>
   </div>
   <div id="main_dashboard1">
+<!-- {{checklists}} -->
+<table>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Due Date</th>
+    <th colspan="2">Action</th>
+    {% for list in checklists %}
+    <tr>
+      <td><a href="wish_items/{{item.id}}">{{list.title}}</a></td>
+      <td>{{list.author.name}}</td>
+      <td>{{list.due_date|date:"F d Y" }}</td>
+      {% if list.author == user %}
+      <td><a href="/delete_item/{{item.id}}">Delete</a></td>
+      {% endif %}
+      <td><a href="/remove_wish/{{item.id}}">Detail</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+    <!-- one Checklist -->
     <div id="column1_dash">
       <div id="steps_home_dashBoard2">
         <div id="step_1_dashBoard2">
@@ -71,6 +91,9 @@
           </form>
         </div> -->
       </div>
+      <!-- one Checklist end -->
+
+
     </div>
     <!-- <div id="column2_dash">
       <h1>Hello This is column 2</h1> -->
