@@ -21,21 +21,21 @@
     <body>
       <div id="headercons">
         <ul id="ul1_newcheck">
-          <li id="li1"><a href='newchecklist'>BACK</a></li>
+          <li id="li1"><a href='/dashBoard'>BACK</a></li>
         {%if user%}
         <li id="li1">Hi, {{user.username}}</li>
-        <li id="li1"><a href='logout'>LOGOUT</a> </li>
+        <li id="li1"><a href='/logout'>LOGOUT</a> </li>
         {% else %}
-        <li id="li1"><a href='signin'>LOGIN</a> </li>
+        <li id="li1"><a href='/signin'>LOGIN</a> </li>
         {% endif %}
         </ul>
         <ul id="ul2">
           <li id="li1"><a href='/' id>PROCESS 9</a></li>
-          <li id="li1"><a href='about'>ABOUT US</a>
+          <li id="li1"><a href='/about'>ABOUT US</a>
           </li>
-          <li id="li1"><a href='services'>SERVICES</a>
+          <li id="li1"><a href='/services'>SERVICES</a>
           </li>
-          <li id="li1"><a href='contact'>CONTACT</a></li>
+          <li id="li1"><a href='/contact'>CONTACT</a></li>
         </ul>
       </div>
       <br>
@@ -47,6 +47,8 @@
           <div class="checklist--wrap">
     
             <h3 id="consTitle">Checklist: <br>Constructing a Building</h3>
+
+            {% if 1 in sections %}
             <div class="checklist">
               <div class="checklist--section">
                 <ul class="checklist--items">
@@ -60,6 +62,8 @@
                 </ul>
               </div>
             </div>
+            {% endif %}
+            {% if 2 in sections %}
             <div class="checklist">
               <div class="checklist--section">
                 <ul class="checklist--items">
@@ -73,6 +77,8 @@
                 </ul>
               </div>
             </div>
+            {% endif %}
+            {% if 3 in sections %}
             <div class="checklist">
               <div class="checklist--section">
                 <ul class="checklist--items">
@@ -86,7 +92,8 @@
                 </ul>
               </div>
             </div>
-    
+            {% endif %}
+            {% if 4 in sections %}
             <div class="checklist">
               <div class="checklist--section">
                 <ul class="checklist--items">
@@ -100,7 +107,8 @@
                 </ul>
               </div>
             </div>
-    
+            {% endif %}
+            {% if 5 in sections %}
             <div class="checklist">
               <div class="checklist--section">
                 <ul class="checklist--items">
@@ -114,7 +122,8 @@
                 </ul>
               </div>
             </div>
-    
+            {% endif %}
+            {% if 6 in sections %}
             <div class="checklist">
               <div class="checklist--section">
                 <ul class="checklist--items">
@@ -128,7 +137,8 @@
                 </ul>
               </div>
             </div>
-    
+            {% endif %}
+            {% if 7 in sections %}
             <div class="checklist">
               <div class="checklist--section">
                 <ul class="checklist--items">
@@ -142,7 +152,8 @@
                 </ul>
               </div>
             </div>
-    
+            {% endif %}
+            {% if 8 in sections %}
             <div class="checklist">
               <div class="checklist--section">
                 <ul class="checklist--items">
@@ -156,6 +167,7 @@
                 </ul>
               </div>
             </div>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -164,12 +176,41 @@
           {% if not user %}
           <h4 id="toget">Get this Checklist?<br>Please Login</h4>
           {% endif %}
+
+          {% if 1 in sections %}
           <div id="section-1">
             <br>
             <br>
             <br><br>
             <h3>Construction Planning</h3>
-            <div class="text">
+						<br>
+						<div class="text">
+							<div id="task1">
+								<h2>Task Details:</h2>
+							</div>
+							<div id="status1">
+								<br>
+								<h3>Checklist Due On: 12/11/2017</h3>
+								<h3>Hold by:</h3>
+								<form>
+									<h3>Status:
+									&nbsp;&nbsp;&nbsp;
+									<select>
+								<option value="dis">Select any one</option>
+								<option value="constrtaken">Locked</option>
+								<option value="constrinprog">In Progress</option>
+								<option value="constrcompltd">Completed</option>
+								<option value="constrclosed">Closed</option>
+							</select>
+									<input type="submit" id="buttonconsaved1" value="Save Status">
+									<h3>Task Completion Date:<input type="date" id="cons_saved_1"></h3>
+								</form>
+							</div>
+							<br>
+							<div><br><br><br>
+								<br> <br><br> <br><br> <br><br><br>
+								<h2>Task Description:</h2>
+
               <p>This is the first step in the process of constructing a building. This includes the following: </p>
               <img src="{% static '/first_app/Construction_1.png' %}" alt="Mountain View" width="500" height="377">
               <form action="">
@@ -213,13 +254,9 @@
     
             </div>
           </div>
+    {% endif %}
     
-    
-    
-    
-    
-    
-    
+    {% if 2 in sections %}
           <div id="section-2">
             <br>
             <br>
@@ -241,7 +278,10 @@
     
             </div>
           </div>
-    
+
+          {% endif %}
+
+          {% if 3 in sections %}
           <div id="section-3">
             <br>
             <br>
@@ -264,7 +304,9 @@
     
             </div>
           </div>
-    
+          {% endif %}
+
+          {% if 4 in sections %}
           <div id="section-4">
             <br>
             <br>
@@ -310,7 +352,9 @@
     
           </div>
     
-    
+          {% endif %}
+
+          {% if 5 in sections %}
           <div id="section-5">
             <br>
             <br>
@@ -372,7 +416,9 @@
     
             </div>
           </div>
-    
+    {% endif %}
+
+    {% if 6 in sections %}
           <div id="section-6">
             <br>
             <br>
@@ -398,7 +444,9 @@
     </textarea>
             </div>
           </div>
-    
+          {% endif %}
+
+          {% if 7 in sections %}
           <div id="section-7">
             <br>
             <br>
@@ -447,7 +495,9 @@
     
             </div>
           </div>
-    
+    {% endif %}
+
+    {% if 8 in sections %}
           <div id="section-8">
             <br>
             <br>
@@ -486,7 +536,8 @@
     </textarea>
             </div>
           </div>
-    
+    {% endif %}
+
         </div>
         <p>
           <form action="">

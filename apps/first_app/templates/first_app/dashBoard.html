@@ -56,13 +56,13 @@
     <th colspan="2">Action</th>
     {% for list in checklists %}
     <tr>
-      <td><a href="wish_items/{{item.id}}">{{list.title}}</a></td>
+      <td>{{list.title}}</a></td>
       <td>{{list.author.name}}</td>
       <td>{{list.due_date|date:"F d Y" }}</td>
       {% if list.author == user %}
-      <td><a href="/delete_item/{{item.id}}">Delete</a></td>
+      <td><a href="/delete/{{list.id}}">Delete</a></td>
       {% endif %}
-      <td><a href="/remove_wish/{{item.id}}">Detail</a></td>
+      <td><a href="show/{{list.id}}">Detail</a></td>
     </tr>
     {% endfor %}
   </table>

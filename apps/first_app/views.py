@@ -94,14 +94,29 @@ def createSuccess(request):
 
 def delete(request, container_id):
     Container.objects.filter(id=container_id).first().delete()
-    return redirect('/dashboard')
+    return redirect('/dashBoard')
 
-# def item(request, item_id):
-#     item = Item.objects.filter(id=item_id).first()
-#     context = {
-#     'item': item
-#     }
-#     return render(request, 'first_app/item.html', context)
+def show(request, container_id):
+    this_container = Container.objects.filter(id=container_id).first()
+    this_temp = this_container.template
+    this_sections = Checklist.objects.filter(container=this_container)
+    numbers = []
+    for s in this_sections:
+        numbers.append(s.number)
+    print ("temp is showing", numbers)
+    context = {
+    'container': this_container,
+    'sections': numbers
+    }
+    if this_temp == "building":
+        return render(request, 'first_app/constructmain.html', context)
+    elif this_temp == "coffee":
+        return render(request, 'first_app/coffeemain.html', context)
+    elif this_temp == "it":
+        return render(request, 'first_app/itmain.html', context)
+    else:
+        return render(request, 'first_app/dashboard.html', context)
+    
 
 # def add_wish(request, item_id):
 #     this_user = User.objects.filter(id=request.session['user_id']).first()
@@ -328,7 +343,7 @@ def constructmain(request):
         this_user = User.objects.filter(id=request.session['user_id']).first()
         context = {
         'user': this_user,
-        'items': Item.objects.all()
+        'sections': [1,2,3,4,5,6,7,8]
         }
         print (context, "is opening homepage")
     except:

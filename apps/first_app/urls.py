@@ -5,7 +5,7 @@ urlpatterns = [
   url(r'^$', views.home),
   url(r'^about$', views.about),
   url(r'^contact$', views.contact),
-  url(r'^services$', views.services),
+  url(r'services$', views.services),
   # user account
   url(r'^register$', views.register),
   url(r'^login$', views.login),
@@ -24,13 +24,14 @@ urlpatterns = [
   url(r'^create$', views.create_new),
   url(r'^createSuccess$', views.createSuccess),
   url(r'^checklist$', views.checklist),
- 
+  url(r'^delete/(?P<container_id>\d+)$', views.delete),
   url(r'^savedChecklists$', views.savedChecklists),
+  url(r'^show/(?P<container_id>\d+)$', views.show),
   # test
   url(r'^test$', views.test),
   url(r'^testnew$', views.test_new),
-  # url(r'^wish_items/(?P<item_id>\d+)$', views.item),
+
   # url(r'^add_wish/(?P<item_id>\d+)$', views.add_wish),
   # url(r'^remove_wish/(?P<item_id>\d+)$', views.remove_wish),
-  # url(r'^delete_item/(?P<item_id>\d+)$', views.delete_item),
+  
 ]
