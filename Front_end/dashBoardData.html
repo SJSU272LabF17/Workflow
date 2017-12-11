@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+<link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
+
+<body>
+
+<style>
+
+#index1
+{
+  min-width: 70px;
+  min-height: 50px;
+  margin-left: 5%;
+  margin-top: -10%;
+}
+.barcontainer {
+  position: relative;
+  border: 3px solid black;
+  border-radius: 5px 5px 0 0;
+  width: 36%;
+  margin-left: 44%;;
+  min-height: 18vw;
+  max-height: 41vw;
+  min-width: 28%;
+  max-width: 55%;
+  z-index: 1;
+}
+
+.barcontainerheader {
+  display: inline;
+  position: absolute;
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background: #663399;
+  border-bottom: 3px solid black;
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 0 black;
+  z-index: 0;
+}
+
+.bar {
+  position: absolute;
+  display: inline-block;
+  bottom: 0px;
+  border: 1px solid black;
+  border-radius: 6px 6px 0 0;
+  background: #006699;
+  width: 20%;
+  margin-left:3%;
+  text-align: center;
+  color: black;
+  text-shadow: 1px 1px 0 black;
+  box-shadow: 4px 0 8px #888;
+}
+.bar span{
+    text-align: center;
+    top:-20px;
+    position: relative;
+    width: 20%;
+}
+
+.barlabel {
+  position: absolute;
+  border-top: 2px solid black;
+  background: #888;
+  bottom: 0;
+  width: 100%;
+  text-shadow: 1px 1px 0px black;
+  color: white;
+}
+
+.bar:nth-child(2) {
+  left: 25%;
+}
+
+.bar:nth-child(3) {
+  left: 50%;
+}
+
+.bar:nth-child(4) {
+  left: 75%;
+}
+
+
+#pie1
+{
+  margin-left:0;
+}
+.pie {
+    position:absolute;
+    width:100px;
+    height:200px;
+    overflow:hidden;
+    left: 42%;
+    -webkit-transform-origin:left center;
+  }
+  .pie.big {
+    width:201px;
+    height:201px;
+    left:35%;
+    -webkit-transform-origin:center center;
+  }
+  .pie:BEFORE {
+    content:"";
+    position:absolute;
+    width:100px;
+    height:200px;
+    left:-100px;
+    border-radius:100px 0 0 100px;
+    -webkit-transform-origin:right center;
+
+  }
+  .pie.big:BEFORE {
+    left:0px;
+  }
+  .pie.big:AFTER {
+    content:"";
+    position:absolute;
+    width:100px;
+    height:200px;
+    left:100px;
+    border-radius:0 100px 100px 0;
+  }
+  input#box1
+  {
+    min-width: 2%;
+    min-height: 3px;
+    background-color: #ffffb3;
+  }
+  input#box2
+  {
+    min-width: 1px;
+    min-height: 3px;
+    background-color: #00004d;
+  }
+  input#box3
+  {
+    min-width: 1px;
+    min-height: 3px;
+    background-color:#33cc33;
+  }
+  input#box4
+  {
+    min-width: 1px;
+    min-height: 3px;
+    background-color: #e60000;
+  }
+  .pie:nth-of-type(1):BEFORE,
+  .pie:nth-of-type(1):AFTER {
+    background-color:#33cc33;
+  }
+  .pie:nth-of-type(2):AFTER,
+  .pie:nth-of-type(2):BEFORE {
+    background-color:#00004d;
+  }
+  .pie:nth-of-type(3):AFTER,
+  .pie:nth-of-type(3):BEFORE {
+    background-color:#e60000;
+  }
+  .pie:nth-of-type(4):AFTER,
+  .pie:nth-of-type(4):BEFORE {
+    #background-color:#ffffb3;
+  }
+
+  .pie[data-start="{{ pie_start4 }}"] {
+    -webkit-transform: rotate({{ pie_start4 }}deg);
+  }
+  .pie[data-start="{{ pie_end2 }}"] {
+    -webkit-transform: rotate({{ pie_end2 }}deg); /* Safari and Chrome */
+  }
+  .pie[data-start="{{ pie_start3 }}"] {
+    -webkit-transform: rotate({{ pie_start3 }}deg); /* Safari and Chrome */
+  }
+  .pie[data-value="{{ pie_end2 }}"]:BEFORE {
+    -webkit-transform: rotate({{ pie_end2 }}deg); /* Safari and Chrome */
+  }
+  .pie[data-value="{{ pie_end1 }}"]:BEFORE {
+    -webkit-transform: rotate({{ pie_end1 }}deg); /* Safari and Chrome */
+  }
+  .pie[data-value="{{ pie_end3 }}"]:BEFORE {
+    -webkit-transform: rotate({{ pie_end3 }}deg); /* Safari and Chrome */
+  }
+  .pie[data-value="{{ pie_end4 }}"]:BEFORE {
+    -webkit-transform: rotate({{ pie_end4 }}deg); /* Safari and Chrome */
+  }
+
+  </style>
+
+  <script type="text/javascript">
+    function toggleContainer(id) {
+      console.log(id);
+      $(".toHideContainer").hide();
+      if (id == "myprogdetail1") {
+        $("#myprogdetail1_div").show();
+      } else if (id == "myprogdetail2") {
+        $("#myprogdetail2_div").show();
+      }
+    }
+
+    window.location.hash = "no-back-button";
+    window.location.hash = "Again-No-back-button"; //again because google chrome don't insert first hash into history
+    window.onhashchange = function() {
+      window.location.hash = "no-back-button";
+    }
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+
+<!-- navbar -->
+<header>
+    <ul id="ul1">
+      <li><a href='/'>PROCESS 9</a></li>
+      {%if user%}
+      <li>Hi, {{user.username}}</li>
+      <li><a href='logout'>LOGOUT</a> </li>
+      {% else %}
+      <li><a href='signin'>LOGIN</a> </li>
+      {% endif %}
+    </ul>
+    <ul id="ul2">
+      <li><a href='about'>ABOUT US</a></li>
+      <li><a href='services'>SERVICES</a></li>
+      <li><a href='contact'>CONTACT</a></li>
+    </ul>
+  </header>
+<!--  -->
+
+  <div id="dashBoard_title">
+    <h1 id="savedcheck_line2_1">Dashboard</h1>
+  </div>
+  <div id="main_dashboard1">
+    <div id="column1_dash">
+      <div id="steps_home_dashBoard2">
+        <div id="step_1_dashBoard2">
+          <br>
+          <div id="step1img_dashBoard2">
+            <h2 id="myh2"><center>Setting up a Coffee Shop</center></h2>
+          </div>
+          <br><br>
+          <form>
+            <h2 id="myprog">Progress <input type="button" value="Details" id="myprogdetail1" onclick="toggleContainer('myprogdetail1')"></h2>
+        </div>
+        <br>
+        <br>
+        <!-- <div id="step_1_dashBoard2">
+          <br>
+          <div id="step1img_dashBoard2">
+            <h2 id="myh2"><center>Constructing a Building</center></h2>
+          </div>
+          <br><br>
+          <h2 id="myprog">Progress : 70% <input type="button" value="Details" id="myprogdetail2" onclick="toggleContainer('myprogdetail2')"></h2>
+          </form>
+        </div> -->
+      </div>
+    </div>
+    <!-- <div id="column2_dash">
+      <h1>Hello This is column 2</h1> -->
+    <div id="myprogdetail1_div" class="toHideContainer" style="display: none">
+      <h1 id="myh1">Setting up a Coffee Shop</h1>
+      <h2 id="contri1">Contributors: </h2>
+      <h3 id="contri2">{{ user1_name }}<br>{{ user2_name }}<br>{{ user3_name }}<br>{{ user4_name }}</h3>
+      <h2 id="contri1">Statistics:</h2>
+      <br>
+      <h2>Checklist Progress &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Performance</h2>
+      <div id="pie1">
+        <div class="pie" data-start="{{ pie_start1 }}" data-value="{{ pie_end1 }}"></div>
+        <div class="pie highlight" data-start="{{ pie_start2 }}" data-value="{{ pie_end2 }}"></div>
+        <div class="pie" data-start="{{pie_start3 }}" data-value="{{ pie_end3 }}"></div>
+        <div class="pie big" data-start="{{ pie_start4 }}" data-value="{{ pie_end4 }}"></div>
+      </div>
+
+      <div class='barcontainer'>
+        <!-- <div class='barcontainerheader'>
+          Contributors
+        </div> -->
+        <div class='bar' style='height:{{ user1_progress}}%'>
+          <span>{{ user1_progress }}%</span>
+          <div class='barlabel'>
+          {{ user1_name }}
+          </div>
+        </div>
+        <div class='bar' style='height:{{ user2_progress }}%'>
+          <span>{{ user2_progress }}%</span>
+          <div class='barlabel'>
+            {{ user2_name }}
+          </div>
+        </div>
+        <div class='bar' style='height:{{ user3_progress }}%'>
+          <span>{{ user3_progress }}%</span>
+          <div class='barlabel'>
+            {{ user3_name }}
+          </div>
+        </div>
+        <div class='bar' style='height:{{ user4_progress }}%'>
+            <span>{{ user4_progress }}%</span>
+          <div class='barlabel'>
+            {{ user4_name }}
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div id="index1">
+        <input type="text" id="box1"> No action<br>
+        <input type="text" id="box2"> In Progress<br>
+        <input type="text" id="box3"> Completed<br>
+        <input type="text" id="box4"> Locked<br>
+      </div>
+      <h2 id="contri1">Details: </h2>
+      <h3>Due Date: 12/11/2017</h3>
+      <table style="width:100%" id="coffeetable">
+        <tr id="tr1">
+          <th>Task No.</th>
+          <th>Task Title</th>
+          <th>Contributor</th>
+          <th>Status</th>
+          <th>Modified On</th>
+        </tr>
+        <tr id="tr1">
+          <td>1</td>
+          <td>{{ title1 }}</td>
+          <td>{{ user1_name }}</td>
+          <td>{{ status1 }}</td>
+          <td>{{ date1 }}</td>
+        </tr>
+        <tr id="tr1">
+          <td>2</td>
+          <td>{{ title2 }}</td>
+          <td>{{ user2_name }}</td>
+          <td>{{ status2 }}</td>
+          <td>{{ date2  }}</td>
+        </tr>
+        <tr id="tr1">
+          <td>3</td>
+          <td>{{ title1 }}</td>
+          <td>{{ user3_name }}</td>
+          <td>{{ status3 }}</td>
+          <td>{{ date1 }}</td>
+        </tr>
+      </table>
+
+    </div>
+    <div id="myprogdetail2_div" class="toHideContainer" style="display: none">
+      <h1 id="myh1">Part2</h1>
+    </div>
+    <!-- </div> -->
+  </div>
+  <footer>
+    Project Title: Process 9 <br> Description: CmpE 272 - Project Team 9 - Process WorkFlow Automation
+  </footer>
+</body>
+
+</html>

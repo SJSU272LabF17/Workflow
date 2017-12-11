@@ -19,11 +19,14 @@
     </script>
 
     <body>
+
+ <!-- <form action="/edit/{{container.id}}"> -->
+
       <div id="headercons">
         <ul id="ul1_newcheck">
           <li id="li1"><a href='/dashBoard'>BACK</a></li>
         {%if user%}
-        <li id="li1">Hi, {{user.username}}</li>
+        <li id="li1">Hi, {{user.name}}</li>
         <li id="li1"><a href='/logout'>LOGOUT</a> </li>
         {% else %}
         <li id="li1"><a href='/signin'>LOGIN</a> </li>
@@ -183,34 +186,45 @@
             <br>
             <br><br>
             <h3>Construction Planning</h3>
+            <!-- status -->
 						<br>
 						<div class="text">
 							<div id="task1">
+                  {% for list in lists %}
+                  {% if list.number == 1 %}
 								<h2>Task Details:</h2>
 							</div>
 							<div id="status1">
 								<br>
-								<h3>Checklist Due On: 12/11/2017</h3>
-								<h3>Hold by:</h3>
-								<form>
-									<h3>Status:
+                <h4>Checklist Due On: {{container.due_date}}</h4>
+              
+                <h4>Hold by: {{list.holder.name}}</h4>
+                <hr>
+                <form action="/edit/{{container.id}}" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" value="1" name="section">
+									<h4>Status: {{list.status}}</h4>
 									&nbsp;&nbsp;&nbsp;
-									<select>
-								<option value="dis">Select any one</option>
-								<option value="constrtaken">Locked</option>
-								<option value="constrinprog">In Progress</option>
-								<option value="constrcompltd">Completed</option>
-								<option value="constrclosed">Closed</option>
-							</select>
-									<input type="submit" id="buttonconsaved1" value="Save Status">
-									<h3>Task Completion Date:<input type="date" id="cons_saved_1"></h3>
+									<select value="{{list.status}}" name="status" default="{{list.status}}">
+								<option value="">Change Status</option>
+								<option value="Locked">Locked</option>
+								<option value="In Progress">In Progress</option>
+								<option value="Completed">Completed</option>
+								<option value="Closed">Closed</option>
+					  		</select>
+									<hr>
+                  <h4>Expected Completion Date:{{list.due_date}}</h4>
+                  <h4>Change Date:</h4>
+                  <input type="date" id="cons_saved_1" value="{{list.due_date}}" name="due_date" default="{{list.due_date}}">
+                  <input type="submit" id="buttonconsaved1" value="Save">
+                  {% endif %}
+                  {% endfor %}
 								</form>
 							</div>
 							<br>
-							<div><br><br><br>
-								<br> <br><br> <br><br> <br><br><br>
+							<div>
 								<h2>Task Description:</h2>
-
+              <!-- status end -->
               <p>This is the first step in the process of constructing a building. This includes the following: </p>
               <img src="{% static '/first_app/Construction_1.png' %}" alt="Mountain View" width="500" height="377">
               <form action="">
@@ -262,7 +276,47 @@
             <br>
             <br><br>
             <h3>Environmental Testing and Surveying</h3>
-            <div class="text">
+            <!-- status -->
+						<br>
+						<div class="text">
+							<div id="task1">
+                  {% for list in lists %}
+                  <!-- number -->
+                  {% if list.number == 2 %}
+								<h2>Task Details:</h2>
+							</div>
+							<div id="status1">
+								<br>
+                <h4>Checklist Due On: {{container.due_date}}</h4>
+              
+                <h4>Hold by: {{list.holder.name}}</h4>
+                <hr>
+                <form action="/edit/{{container.id}}" method="post">
+                  {% csrf_token %}
+                  <!-- hidden -->
+                  <input type="hidden" value="2" name="section">
+									<h4>Status: {{list.status}}</h4>
+									&nbsp;&nbsp;&nbsp;
+									<select value="{{list.status}}" name="status" default="{{list.status}}">
+								<option value="">Change Status</option>
+								<option value="Locked">Locked</option>
+								<option value="In Progress">In Progress</option>
+								<option value="Completed">Completed</option>
+								<option value="Closed">Closed</option>
+					  		</select>
+									<hr>
+                  <h4>Expected Completion Date:{{list.due_date}}</h4>
+                  <h4>Change Date:</h4>
+                  <input type="date" id="cons_saved_1" value="{{list.due_date}}" name="due_date" default="{{list.due_date}}">
+                  <input type="submit" id="buttonconsaved1" value="Save">
+                  {% endif %}
+                  {% endfor %}
+								</form>
+							</div>
+							<br>
+							<div>
+								<h2>Task Description:</h2>
+              <!-- status end -->
               <p>It is very important to do environment testing to find out whether there are any contaminants in the soil of the location we are interested in to start the project. Avoid buying any type of contaminated property as removing the contaminants can be
                 very expensive.</p>
               <img src="{% static '/first_app/construction_2.jpg' %}" alt="Mountain View" width="500" height="377">
@@ -287,7 +341,47 @@
             <br>
             <br><br>
             <h3>Buying Land</h3>
-            <div class="text">
+            <!-- status -->
+						<br>
+						<div class="text">
+							<div id="task1">
+                  {% for list in lists %}
+                  <!-- number -->
+                  {% if list.number == 3 %}
+								<h2>Task Details:</h2>
+							</div>
+							<div id="status1">
+								<br>
+                <h4>Checklist Due On: {{container.due_date}}</h4>
+              
+                <h4>Hold by: {{list.holder.name}}</h4>
+                <hr>
+                <form action="/edit/{{container.id}}" method="post">
+                  {% csrf_token %}
+                  <!-- hidden -->
+                  <input type="hidden" value="3" name="section">
+									<h4>Status: {{list.status}}</h4>
+									&nbsp;&nbsp;&nbsp;
+									<select value="{{list.status}}" name="status" default="{{list.status}}">
+								<option value="">Change Status</option>
+								<option value="Locked">Locked</option>
+								<option value="In Progress">In Progress</option>
+								<option value="Completed">Completed</option>
+								<option value="Closed">Closed</option>
+					  		</select>
+									<hr>
+                  <h4>Expected Completion Date:{{list.due_date}}</h4>
+                  <h4>Change Date:</h4>
+                  <input type="date" id="cons_saved_1" value="{{list.due_date}}" name="due_date" default="{{list.due_date}}">
+                  <input type="submit" id="buttonconsaved1" value="Save">
+                  {% endif %}
+                  {% endfor %}
+								</form>
+							</div>
+							<br>
+							<div>
+								<h2>Task Description:</h2>
+              <!-- status end -->
     
               <p>After completion of land surveying, planning and environmental testing, make sure that the right land is bought for the project.</p>
               <img src="{% static '/first_app/construction_4.jpg' %}" alt="Mountain View" width="500" height="377">
@@ -312,6 +406,47 @@
             <br>
             <br><br>
             <h3>Construction Design</h3>
+            <!-- status -->
+						<br>
+						<div class="text">
+							<div id="task1">
+                  {% for list in lists %}
+                  <!-- number -->
+                  {% if list.number == 4 %}
+								<h2>Task Details:</h2>
+							</div>
+							<div id="status1">
+								<br>
+                <h4>Checklist Due On: {{container.due_date}}</h4>
+              
+                <h4>Hold by: {{list.holder.name}}</h4>
+                <hr>
+                <form action="/edit/{{container.id}}" method="post">
+                  {% csrf_token %}
+                  <!-- hidden -->
+                  <input type="hidden" value="4" name="section">
+									<h4>Status: {{list.status}}</h4>
+									&nbsp;&nbsp;&nbsp;
+									<select value="{{list.status}}" name="status" default="{{list.status}}">
+								<option value="">Change Status</option>
+								<option value="Locked">Locked</option>
+								<option value="In Progress">In Progress</option>
+								<option value="Completed">Completed</option>
+								<option value="Closed">Closed</option>
+					  		</select>
+									<hr>
+                  <h4>Expected Completion Date:{{list.due_date}}</h4>
+                  <h4>Change Date:</h4>
+                  <input type="date" id="cons_saved_1" value="{{list.due_date}}" name="due_date" default="{{list.due_date}}">
+                  <input type="submit" id="buttonconsaved1" value="Save">
+                  {% endif %}
+                  {% endfor %}
+								</form>
+							</div>
+							<br>
+							<div>
+								<h2>Task Description:</h2>
+              <!-- status end -->
             <p>The architect also seeks contractor’s involvement in the design process. This not only provides the owner and the architect with useful information related to current market pricing but also helps them take quick decisions about the construction.</p>
             <p>This involves the following important steps:</p>
     
@@ -360,7 +495,47 @@
             <br>
             <br><br>
             <h3>Pre-Construction</h3>
-            <div class="text">
+            <!-- status -->
+						<br>
+						<div class="text">
+							<div id="task1">
+                  {% for list in lists %}
+                  <!-- number -->
+                  {% if list.number == 5 %}
+								<h2>Task Details:</h2>
+							</div>
+							<div id="status1">
+								<br>
+                <h4>Checklist Due On: {{container.due_date}}</h4>
+              
+                <h4>Hold by: {{list.holder.name}}</h4>
+                <hr>
+                <form action="/edit/{{container.id}}" method="post">
+                  {% csrf_token %}
+                  <!-- hidden -->
+                  <input type="hidden" value="5" name="section">
+									<h4>Status: {{list.status}}</h4>
+									&nbsp;&nbsp;&nbsp;
+									<select value="{{list.status}}" name="status" default="{{list.status}}">
+								<option value="">Change Status</option>
+								<option value="Locked">Locked</option>
+								<option value="In Progress">In Progress</option>
+								<option value="Completed">Completed</option>
+								<option value="Closed">Closed</option>
+					  		</select>
+									<hr>
+                  <h4>Expected Completion Date:{{list.due_date}}</h4>
+                  <h4>Change Date:</h4>
+                  <input type="date" id="cons_saved_1" value="{{list.due_date}}" name="due_date" default="{{list.due_date}}">
+                  <input type="submit" id="buttonconsaved1" value="Save">
+                  {% endif %}
+                  {% endfor %}
+								</form>
+							</div>
+							<br>
+							<div>
+								<h2>Task Description:</h2>
+              <!-- status end -->
               <img src="{% static '/first_app/construction_6.jpg' %}" alt="Mountain View" width="500" height="377">
     
               <p>This stage involves preparing the required list of materials and sending it to different contractors and vendors for quotes.</p>
@@ -424,7 +599,47 @@
             <br>
             <br><br>
             <h3>Procurement</h3>
-            <div class="text">
+            <!-- status -->
+						<br>
+						<div class="text">
+							<div id="task1">
+                  {% for list in lists %}
+                  <!-- number -->
+                  {% if list.number == 6 %}
+								<h2>Task Details:</h2>
+							</div>
+							<div id="status1">
+								<br>
+                <h4>Checklist Due On: {{container.due_date}}</h4>
+              
+                <h4>Hold by: {{list.holder.name}}</h4>
+                <hr>
+                <form action="/edit/{{container.id}}" method="post">
+                  {% csrf_token %}
+                  <!-- hidden -->
+                  <input type="hidden" value="6" name="section">
+									<h4>Status: {{list.status}}</h4>
+									&nbsp;&nbsp;&nbsp;
+									<select value="{{list.status}}" name="status" default="{{list.status}}">
+								<option value="">Change Status</option>
+								<option value="Locked">Locked</option>
+								<option value="In Progress">In Progress</option>
+								<option value="Completed">Completed</option>
+								<option value="Closed">Closed</option>
+					  		</select>
+									<hr>
+                  <h4>Expected Completion Date:{{list.due_date}}</h4>
+                  <h4>Change Date:</h4>
+                  <input type="date" id="cons_saved_1" value="{{list.due_date}}" name="due_date" default="{{list.due_date}}">
+                  <input type="submit" id="buttonconsaved1" value="Save">
+                  {% endif %}
+                  {% endfor %}
+								</form>
+							</div>
+							<br>
+							<div>
+								<h2>Task Description:</h2>
+              <!-- status end -->
               <p>This is the stage in which the labor, materials and equipment needed to complete the construction project are acquired. If the company does not do this on their own, they hire sub-contractors.</p>
     
               <p>Subcontractor is a contractor who specialize in one aspect of the construction work such as concrete, melding, glass, Subcontractors are hired the same way a general contractor would be, which is through the bidding.</p>
@@ -452,7 +667,47 @@
             <br>
             <br><br>
             <h3>Construction</h3>
-            <div class="text">
+            <!-- status -->
+						<br>
+						<div class="text">
+							<div id="task1">
+                  {% for list in lists %}
+                  <!-- number -->
+                  {% if list.number == 7 %}
+								<h2>Task Details:</h2>
+							</div>
+							<div id="status1">
+								<br>
+                <h4>Checklist Due On: {{container.due_date}}</h4>
+              
+                <h4>Hold by: {{list.holder.name}}</h4>
+                <hr>
+                <form action="/edit/{{container.id}}" method="post">
+                  {% csrf_token %}
+                  <!-- hidden -->
+                  <input type="hidden" value="7" name="section">
+									<h4>Status: {{list.status}}</h4>
+									&nbsp;&nbsp;&nbsp;
+									<select value="{{list.status}}" name="status" default="{{list.status}}">
+								<option value="">Change Status</option>
+								<option value="Locked">Locked</option>
+								<option value="In Progress">In Progress</option>
+								<option value="Completed">Completed</option>
+								<option value="Closed">Closed</option>
+					  		</select>
+									<hr>
+                  <h4>Expected Completion Date:{{list.due_date}}</h4>
+                  <h4>Change Date:</h4>
+                  <input type="date" id="cons_saved_1" value="{{list.due_date}}" name="due_date" default="{{list.due_date}}">
+                  <input type="submit" id="buttonconsaved1" value="Save">
+                  {% endif %}
+                  {% endfor %}
+								</form>
+							</div>
+							<br>
+							<div>
+								<h2>Task Description:</h2>
+              <!-- status end -->
               <img src="{% static '/first_app/construction_8.jpg' %}" alt="Mountain View" width="500" height="377">
     
               <p>The construction phase consists of the following steps:</p>
@@ -503,7 +758,47 @@
             <br>
             <br><br>
             <h3>Post-Construction</h3>
-            <div class="text">
+            <!-- status -->
+						<br>
+						<div class="text">
+							<div id="task1">
+                  {% for list in lists %}
+                  <!-- number -->
+                  {% if list.number == 8 %}
+								<h2>Task Details:</h2>
+							</div>
+							<div id="status1">
+								<br>
+                <h4>Checklist Due On: {{container.due_date}}</h4>
+              
+                <h4>Hold by: {{list.holder.name}}</h4>
+                <hr>
+                <form action="/edit/{{container.id}}" method="post">
+                  {% csrf_token %}
+                  <!-- hidden -->
+                  <input type="hidden" value="8" name="section">
+									<h4>Status: {{list.status}}</h4>
+									&nbsp;&nbsp;&nbsp;
+									<select value="{{list.status}}" name="status" default="{{list.status}}">
+								<option value="">Change Status</option>
+								<option value="Locked">Locked</option>
+								<option value="In Progress">In Progress</option>
+								<option value="Completed">Completed</option>
+								<option value="Closed">Closed</option>
+					  		</select>
+									<hr>
+                  <h4>Expected Completion Date:{{list.due_date}}</h4>
+                  <h4>Change Date:</h4>
+                  <input type="date" id="cons_saved_1" value="{{list.due_date}}" name="due_date" default="{{list.due_date}}">
+                  <input type="submit" id="buttonconsaved1" value="Save">
+                  {% endif %}
+                  {% endfor %}
+								</form>
+							</div>
+							<br>
+							<div>
+								<h2>Task Description:</h2>
+              <!-- status end -->
               <img src="{% static '/first_app/construction_9.png' %}" alt="Mountain View" width="500" height="377">
     
               <p>When the construction has been completed, following steps need to be completed before the building is given to customers for occupancy:</p>

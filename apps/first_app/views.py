@@ -10,15 +10,15 @@ def test_new(request):
     return redirect('/test')
 
 def home(request):
-    # try:
-    this_user = User.objects.filter(id=request.session['user_id']).first()
-    context = {
-    'user': this_user,
-    'items': Item.objects.all()
-    }
-    print (context, "is opening homepage")
-    # except:
-    #     context = {}
+    try:
+        this_user = User.objects.filter(id=request.session['user_id']).first()
+        context = {
+        'user': this_user,
+        'items': Item.objects.all()
+        }
+        # print (context, "is opening homepage")
+    except:
+        context = {}
     # print ("find the user is", User.objects.filter(id=request.session['user_id']).first())
     # print ("userid is", request.session['user_id'])
     # print (context, "is opening homepage")
@@ -99,15 +99,17 @@ def delete(request, container_id):
 def show(request, container_id):
     this_container = Container.objects.filter(id=container_id).first()
     this_temp = this_container.template
-    this_sections = Checklist.objects.filter(container=this_container)
+    lists = Checklist.objects.filter(container=this_container)
     numbers = []
-    for s in this_sections:
+    for s in lists:
         numbers.append(s.number)
     print ("temp is showing", numbers)
     context = {
     'container': this_container,
-    'sections': numbers
+    'sections': numbers,
+    'lists':lists
     }
+    print ("lists are", lists)
     if this_temp == "building":
         return render(request, 'first_app/constructmain.html', context)
     elif this_temp == "coffee":
@@ -117,12 +119,20 @@ def show(request, container_id):
     else:
         return render(request, 'first_app/dashboard.html', context)
     
+def edit(request, container_id):
+    this_user = User.objects.filter(id=request.session['user_id']).first()
+    this_container = Container.objects.filter(id=container_id).first()
+    this_lists = Checklist.objects.filter(container=this_container)
+    this_section_number = request.POST.get('section', False)
+    change_status = request.POST.get('status', False)
+    change_due_date = request.POST.get('due_date', False)
+    Checklist.objects.filter(container=this_container, number=this_section_number).update(status=change_status, due_date=change_due_date, holder=this_user)
+    # for list in this_lists:
+    #     if list.number == this_section_number:
+    #         list
 
-# def add_wish(request, item_id):
-#     this_user = User.objects.filter(id=request.session['user_id']).first()
-#     this_item = Item.objects.filter(id=item_id).first()
-#     this_item.wished_users.add(this_user)
-#     return redirect('/dashboard')
+    showlink = '/show/' + str(this_container.id)
+    return redirect(showlink)
 
 # def remove_wish(request, item_id):
 #     this_user = User.objects.filter(id=request.session['user_id']).first()

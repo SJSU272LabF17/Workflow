@@ -73,7 +73,7 @@ class Container(models.Model):
 class Checklist(models.Model): 
     container = models.ForeignKey(Container, related_name="contained_lists")
     number =  models.IntegerField(default=0)
-    due_date = models.DateField()
+    due_date = models.DateTimeField()
     status = models.CharField(max_length=38)
     updated_at = models.DateTimeField(auto_now=True)
     holder = models.ForeignKey(User, related_name="taked_lists", default=None, null=True)

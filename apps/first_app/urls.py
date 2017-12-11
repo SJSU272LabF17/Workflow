@@ -27,11 +27,12 @@ urlpatterns = [
   url(r'^delete/(?P<container_id>\d+)$', views.delete),
   url(r'^savedChecklists$', views.savedChecklists),
   url(r'^show/(?P<container_id>\d+)$', views.show),
+  url(r'^edit/(?P<container_id>\d+)$', views.edit),  
   # test
   url(r'^test$', views.test),
   url(r'^testnew$', views.test_new),
 
-  # url(r'^add_wish/(?P<item_id>\d+)$', views.add_wish),
+
   # url(r'^remove_wish/(?P<item_id>\d+)$', views.remove_wish),
   
 ]
