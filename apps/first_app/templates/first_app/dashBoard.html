@@ -3,17 +3,13 @@
 
 {% load static %}
 <link href="{% static '/first_app/style.css' %}" rel='stylesheet'>
-
 <body>
+
   <script type="text/javascript">
     function toggleContainer(id) {
       console.log(id);
       $(".toHideContainer").hide();
-      if (id == "myprogdetail1") {
-        $("#myprogdetail1_div").show();
-      } else if (id == "myprogdetail2") {
-        $("#myprogdetail2_div").show();
-      }
+      $("#"+ id).show();
     }
 
     window.location.hash = "no-back-button";
@@ -24,7 +20,31 @@
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   </script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Locked', {{ closed }}],
+  ['In Progress', {{ in_progress }}],
+  ['Completed', {{ completed }}],
+  ['Locked', {{ locked }}],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'', 'width':500, 'height':350};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
 <!-- navbar -->
 <header>
     <ul id="ul1">
@@ -48,57 +68,134 @@
     <h1 id="savedcheck_line2_1">Dashboard</h1>
   </div>
   <div id="main_dashboard1">
-<!-- {{checklists}} -->
-<table>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Due Date</th>
-    <th colspan="2">Action</th>
-    {% for list in checklists %}
-    <tr>
-      <td>{{list.title}}</a></td>
-      <td>{{list.author.name}}</td>
-      <td>{{list.due_date|date:"F d Y" }}</td>
-      {% if list.author == user %}
-      <td><a href="/delete/{{list.id}}">Delete</a></td>
-      {% endif %}
-      <td><a href="show/{{list.id}}">Detail</a></td>
-    </tr>
-    {% endfor %}
-  </table>
 
-    <!-- one Checklist -->
+<div>
+  <!-- sample -->
+  <!-- <div style="display:block; width:100%">
+    <div id="column1_dash">
+        <div id="steps_home_dashBoard2">
+          <div id="step_1_dashBoard2">
+            <div id="step1img_dashBoard2">
+              <h2 id="myh2"><center>sample task</center></h2>
+            </div>
+              <h2 class="myprog">Created By: userX</h2>
+              <h2 class="myprog">Due Date: </h2>
+              <input type="button" value="Progress" class="dashdetail" onclick="toggleContainer('sample')">
+              <input type="button" value="Detail" class="dashdetail" onclick="window.open('/show/{{list.id}}')">
+              <input type="button" value="Remove" class="dashdetail" onclick="window.location.href='/delete/{{list.id}}'">
+          </div>
+        </div>
+      </div> -->
+  <!-- one Checklist -->
+  {% for list in checklists %}
     <div id="column1_dash">
       <div id="steps_home_dashBoard2">
         <div id="step_1_dashBoard2">
-          <br>
           <div id="step1img_dashBoard2">
-            <h2 id="myh2"><center>Setting up a Coffee Shop</center></h2>
+            <h2 id="myh2"><center>{{list.title}}</center></h2>
           </div>
-          <br><br>
-          <form>
-            <h2 id="myprog">Progress : 30% <input type="button" value="Details" id="myprogdetail1" onclick="toggleContainer('myprogdetail1')"></h2>
-        </div>
-        <br>
-        <br>
-        <!-- <div id="step_1_dashBoard2">
-          <br>
-          <div id="step1img_dashBoard2">
-            <h2 id="myh2"><center>Constructing a Building</center></h2>
+            <h2 class="myprog">Created By: {{list.author.name}}</h2>
+            <h2 class="myprog">Due Date: {{list.due_date|date:"F d Y" }}</h2>
+            <input type="button" value="Progress" class="dashdetail" onclick="toggleContainer('analysis{{list.id}}')">
+            <input type="button" value="Detail" class="dashdetail" onclick="window.open('/show/{{list.id}}')">
+            {% if list.author == user %}
+            <input type="button" value="Remove" class="dashdetail" onclick="window.location.href='/delete/{{list.id}}'">
+            {% endif %}
           </div>
-          <br><br>
-          <h2 id="myprog">Progress : 70% <input type="button" value="Details" id="myprogdetail2" onclick="toggleContainer('myprogdetail2')"></h2>
-          </form>
-        </div> -->
       </div>
-      <!-- one Checklist end -->
-
-
     </div>
-    <!-- <div id="column2_dash">
-      <h1>Hello This is column 2</h1> -->
-    <div id="myprogdetail1_div" class="toHideContainer" style="display: none">
-      <h1 id="myh1">Setting up a Coffee Shop</h1>
+    {% endfor %}
+    <!-- one Checklist end -->
+    </div>
+</div>
+<div style="">
+<!-- on analysis start -->
+{% for list in checklists %}
+<!-- <div id="sample" class="toHideContainer analysis" style="display: none" class="analysis"> -->
+    <div id="analysis{{list.id}}" class="toHideContainer analysis" style="display: none" class="analysis">
+      <h1 id="myh1">{{list.title}}</h1>
+      <h2 id="contri1">Contributors: </h2>
+      <h3 id="contri2">Uttara Kulkarni<br>Lu Yu<br>Rohan Kelkar<br>Hsien Fang Liu</h3>
+      <h2 id="contri1">Statistics:</h2>
+      <br>
+      <!-- pi graph-->
+      <h2>Checklist Progress &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </h2>
+      <div id="pie1">
+          <div id="piechart"></div>
+          <!-- <div class="pie" data-start="{{ pie_start1 }}" data-value="{{ pie_end1 }}"></div>
+          <div class="pie highlight" data-start="{{ pie_start2 }}" data-value="{{ pie_end2 }}"></div>
+          <div class="pie" data-start="{{pie_start3 }}" data-value="{{ pie_end3 }}"></div>
+          <div class="pie big" data-start="{{ pie_start4 }}" data-value="{{ pie_end4 }}"></div> -->
+        </div>
+<!-- bar graph -->
+<div class='barcontainer'>
+    <!-- <div class='bar' style='height:60%'>
+      15%
+      <div class='barlabel'>
+        Lu
+      </div>
+    </div>
+    <div class='bar' style='height:15%'>
+      5%
+      <div class='barlabel'>
+        Rohan
+      </div>
+    </div>
+    <div class='bar' style='height:30%'>
+      10%
+      <div class='barlabel'>
+        Uttara
+      </div>
+    </div>
+    <div class='bar' style='height:2%'>
+      <div class='barlabel'>
+        Hsien </div>
+    </div> -->
+  </div>
+    <br><br>
+      <div id="index1">
+        <input type="text" id="box1"> Closed<br>
+        <input type="text" id="box2"> In Progress<br>
+        <input type="text" id="box3"> Completed<br>
+        <input type="text" id="box4"> Locked<br>
+      </div>
+
+      <!-- table -->
+      <h2 id="contri1">Details: </h2>
+      <h3>Due Date: {{list.due_date}}</h3>
+      <table style="width:100%" id="coffeetable">
+        <tr id="tr1">
+          <th>Task Title</th>
+          <th>Contributor</th>
+          <th>Status</th>
+          <th>Expected</th>
+        </tr>
+        {% for s in list.sections %}
+        <tr id="tr1">
+          <td>{{s.title}}</td>
+          <td>{{s.holder.name}}</td>
+          <td>{{s.status}}</td>
+          <td>{{s.due_date}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  
+{% endfor %}
+    </div>
+
+  <!-- analysis end -->
+
+  <!-- sample -->
+  <div id="sample" class="toHideContainer analysis" style="display: none" class="analysis">
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <h1 id="myh1">Set up a coffee shop</h1>
       <h2 id="contri1">Contributors: </h2>
       <h3 id="contri2">Uttara Kulkarni<br>Lu Yu<br>Rohan Kelkar<br>Hsien Fang Liu</h3>
       <h2 id="contri1">Statistics:</h2>
@@ -116,9 +213,6 @@
       </div>
 
       <div class='barcontainer'>
-        <!-- <div class='barcontainerheader'>
-          Contributors
-        </div> -->
         <div class='bar' style='height:60%'>
           15%
           <div class='barlabel'>
@@ -144,20 +238,20 @@
       </div>
       <br><br>
       <div id="index1">
-        <input type="text" id="box1"> No action<br>
+        <input type="text" id="box1"> Closed<br>
         <input type="text" id="box2"> In Progress<br>
         <input type="text" id="box3"> Completed<br>
         <input type="text" id="box4"> Locked<br>
       </div>
       <h2 id="contri1">Details: </h2>
-      <h3>Due Date: 12/11/2017</h3>
+      <h3>Due Date: {{list.due_date}}</h3>
       <table style="width:100%" id="coffeetable">
         <tr id="tr1">
           <th>Task No.</th>
           <th>Task Title</th>
           <th>Contributor</th>
           <th>Status</th>
-          <th>Modified On</th>
+          <th>Expected</th>
         </tr>
         <tr id="tr1">
           <td>1</td>
@@ -183,14 +277,121 @@
       </table>
 
     </div>
-    <div id="myprogdetail2_div" class="toHideContainer" style="display: none">
-      <h1 id="myh1">Part2</h1>
-    </div>
-    <!-- </div> -->
-  </div>
+</div>
+
   <footer>
     Project Title: Process 9 <br> Description: CmpE 272 - Project Team 9 - Process WorkFlow Automation
   </footer>
+  
+  <style>
+#analysis{{list.id}}
+{
+  border-style: solid;
+  border-color: grey;
+  border-width: medium;
+  min-width: 400px;
+  margin-right: 30px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  margin-left: 450px;
+}
+#index1
+{
+  min-width: 70px;
+  min-height: 50px;
+  margin-left: 5%;
+  margin-top: -10%;
+}
+.barcontainer {
+  position: relative;
+  /* border: 3px solid black; */
+  /* border-radius: 5px 5px 0 0; */
+  width: 36%;
+  margin-left: 44%;;
+  min-height: 18vw;
+  max-height: 41vw;
+  min-width: 28%;
+  max-width: 55%;
+  z-index: 1;
+}
+
+.barcontainerheader {
+  display: inline;
+  position: absolute;
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background: #663399;
+  border-bottom: 3px solid black;
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 0 black;
+  z-index: 0;
+}
+
+.bar {
+  position: absolute;
+  display: inline-block;
+  bottom: 0px;
+  border: 1px solid black;
+  border-radius: 6px 6px 0 0;
+  background: #006699;
+  width: 20%;
+  margin-left:3%;
+  text-align: center;
+  color: black;
+  text-shadow: 1px 1px 0 black;
+  box-shadow: 4px 0 8px #888;
+}
+.bar span{
+    text-align: center;
+    top:-20px;
+    position: relative;
+    width: 20%;
+}
+
+.barlabel {
+  position: absolute;
+  border-top: 2px solid black;
+  background: #888;
+  bottom: 0;
+  width: 100%;
+  text-shadow: 1px 1px 0px black;
+  color: white;
+}
+
+.bar:nth-child(2) {
+  left: 25%;
+}
+
+.bar:nth-child(3) {
+  left: 50%;
+}
+
+.bar:nth-child(4) {
+  left: 75%;
+}
+
+
+#pie1
+{
+  margin-left: 0;
+}
+.pie {
+    position:absolute;
+    width:100px;
+    height:200px;
+    left: 42%;
+  }
+#piechart{
+    position:relative;
+    width:20px;
+    height:50px;
+    left: -3%;
+}
+
+  </style>
 </body>
 
 </html>

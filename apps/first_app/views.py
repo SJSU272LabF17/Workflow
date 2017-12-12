@@ -127,34 +127,9 @@ def edit(request, container_id):
     change_status = request.POST.get('status', False)
     change_due_date = request.POST.get('due_date', False)
     Checklist.objects.filter(container=this_container, number=this_section_number).update(status=change_status, due_date=change_due_date, holder=this_user)
-    # for list in this_lists:
-    #     if list.number == this_section_number:
-    #         list
 
     showlink = '/show/' + str(this_container.id)
     return redirect(showlink)
-
-# def remove_wish(request, item_id):
-#     this_user = User.objects.filter(id=request.session['user_id']).first()
-#     this_item = Item.objects.filter(id=item_id).first()
-#     this_item.wished_users.remove(this_user)
-#     return redirect('/dashboard')
-
-# def delete_item(request, item_id):
-#     Item.objects.filter(id=item_id).first().delete()
-#     return redirect('/dashboard')
-
-# def chngPswd(request):
-#     try:
-#         this_user = User.objects.filter(id=request.session['user_id']).first()
-#         context = {
-#         'user': this_user,
-#         'items': Item.objects.all()
-#         }
-#         print (context, "is opening homepage")
-#     except:
-#         context = {}
-#     return render(request, 'first_app/chngPswd.html', context)
 
 def contact(request):
     try:
@@ -279,14 +254,91 @@ def newchecklist(request):
 def dashBoard(request):
     try:
         this_user = User.objects.filter(id=request.session['user_id']).first()
+        all_checklists = Container.objects.all()
+        checklists_with_data = []
+        for list in all_checklists:
+            checklists_with_data.append(list)
+            sections = Checklist.objects.filter(container=list)
+            section_titles = ["Construction Planning","Environmental Testing and Surveying","Buying Land","Construction Design","Pre-Construction","Procurement","Construction","Post-Construction"]
+            closed = in_progress = completd = locked = 0
+            people = {}
+            for s in sections:
+                s.title = section_titles[s.number - 1]
+                ss = s.status
+                if ss == "Closed":
+                    closed += 1
+                elif ss == "Completed":
+                    completd += 1
+                elif ss == "In Progress":
+                    in_progress += 1
+                else:
+                    locked += 1
+                # person = User.objects.create()
+                person = s.holder
+                print ("person is ", person)
+                if person:
+                    p = person.name
+                    print ("name is ", p)
+                    if p in people:
+                        people[p] += 1
+                    else:
+                        people[p] = 0
+            list.sections = sections
+            total = len(sections)
+            # calculate pi graph
+        # pie_start1 = 0
+        # pie_end1 = completd * 360 / total 
+        # pie_start2 = pie_end1
+        # pie_end2 = in_progress * 360 / total
+        # pie_start3 = pie_start2 + pie_end2
+        # pie_end3 = locked * 360 / total
+        # pie_start4 = pie_start3 + pie_end3
+        # pie_end4 = closed * 360 / total
+        # calculate bar
+        # progress1 = people.values()[0] * 100 / total
+        # progress2 = people.values()[1] * 100 / total
+        # progress3 = people.values()[2] * 100 / total
+        # progress4 = people.values()[3] * 100 / total
+            
         context = {
         'user': this_user,
-        'checklists': Container.objects.all()
+        'checklists': checklists_with_data,
+        'closed': closed,
+        'in_progress': in_progress ,
+        'completed': completd,
+        'locked': locked,
+        # 'pie_start1': pie_start1, 'pie_end1': pie_end1, 'pie_start2': pie_start2, 'pie_end2': pie_end2,
+        #             'pie_start3':pie_start3, 'pie_end3': pie_end3, 'pie_start4': pie_start4, 'pie_end4': pie_end4,
+        # 'user1_progress': progress1 ,  'user1_name': people[0], 
+        #             'user2_progress': progress2 , 'user2_name': people.keys()[1], 
+        #             'user3_progress': progress3 , 'user3_name': people.keys()[2], 
+        #             'user4_progress': progress4 , 'user4_name': people.keys()[3],
         }
-        print (context, "is passed into dashboard")
     except:
         context = {}
+    print (context, "is passed into dashboard")
     return render(request, 'first_app/dashBoard.html', context)
+
+# def data():
+    
+#     pie_start1 = 0
+#     pie_end1 = completed * 360 / total 
+#     pie_start2 = pie_end1
+#     pie_end2 = in_progress * 360 / total
+#     pie_start3 = pie_start2 + pie_end2
+#     pie_end3 = locked * 360 / total
+#     pie_start4 = pie_start3 + pie_end3
+#     pie_end4 = closed * 360 / total
+#     user1_progress
+
+#     context ={ 'pie_start1': pie_start1, 'pie_end1': pie_end1, 'pie_start2': pie_start2, 'pie_end2': pie_end2,
+#                 'pie_start3':pie_start3, 'pie_end3': pie_end3, 'pie_start4': pie_start4, 'pie_end4': pie_end4,
+#                 'user1_progress': 60, 'title1': 'b', 'user1_name': 'user1', 'status1': 'Locked', 'date1': '11/01',
+#                 'user2_progress': 40, 'title2': 'b', 'user2_name': 'user2', 'status2': 'Locked', 'date2': '11/01',
+#                 'user3_progress': 20, 'title3': 'b', 'user3_name': 'user3', 'status3': 'Locked', 'date3': '11/01',
+#                 'user4_progress': 10, 'title4': 'b', 'user4_name': 'user4', 'status4': 'Locked', 'date4': '11/01',
+#                 }
+#     return render(request, 'first_app/dashBoard.html', context)
 
 def checklist(request):
     try:

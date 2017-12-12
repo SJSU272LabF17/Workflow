@@ -89,105 +89,23 @@
 
 #pie1
 {
-  margin-left:0;
+  margin-left: 0;
 }
 .pie {
     position:absolute;
     width:100px;
     height:200px;
-    overflow:hidden;
+    {#overflow:hidden;#}
     left: 42%;
     -webkit-transform-origin:left center;
   }
-  .pie.big {
-    width:201px;
-    height:201px;
-    left:35%;
-    -webkit-transform-origin:center center;
-  }
-  .pie:BEFORE {
-    content:"";
-    position:absolute;
-    width:100px;
-    height:200px;
-    left:-100px;
-    border-radius:100px 0 0 100px;
-    -webkit-transform-origin:right center;
-
-  }
-  .pie.big:BEFORE {
-    left:0px;
-  }
-  .pie.big:AFTER {
-    content:"";
-    position:absolute;
-    width:100px;
-    height:200px;
-    left:100px;
-    border-radius:0 100px 100px 0;
-  }
-  input#box1
-  {
-    min-width: 2%;
-    min-height: 3px;
-    background-color: #ffffb3;
-  }
-  input#box2
-  {
-    min-width: 1px;
-    min-height: 3px;
-    background-color: #00004d;
-  }
-  input#box3
-  {
-    min-width: 1px;
-    min-height: 3px;
-    background-color:#33cc33;
-  }
-  input#box4
-  {
-    min-width: 1px;
-    min-height: 3px;
-    background-color: #e60000;
-  }
-  .pie:nth-of-type(1):BEFORE,
-  .pie:nth-of-type(1):AFTER {
-    background-color:#33cc33;
-  }
-  .pie:nth-of-type(2):AFTER,
-  .pie:nth-of-type(2):BEFORE {
-    background-color:#00004d;
-  }
-  .pie:nth-of-type(3):AFTER,
-  .pie:nth-of-type(3):BEFORE {
-    background-color:#e60000;
-  }
-  .pie:nth-of-type(4):AFTER,
-  .pie:nth-of-type(4):BEFORE {
-    #background-color:#ffffb3;
-  }
-
-  .pie[data-start="{{ pie_start4 }}"] {
-    -webkit-transform: rotate({{ pie_start4 }}deg);
-  }
-  .pie[data-start="{{ pie_end2 }}"] {
-    -webkit-transform: rotate({{ pie_end2 }}deg); /* Safari and Chrome */
-  }
-  .pie[data-start="{{ pie_start3 }}"] {
-    -webkit-transform: rotate({{ pie_start3 }}deg); /* Safari and Chrome */
-  }
-  .pie[data-value="{{ pie_end2 }}"]:BEFORE {
-    -webkit-transform: rotate({{ pie_end2 }}deg); /* Safari and Chrome */
-  }
-  .pie[data-value="{{ pie_end1 }}"]:BEFORE {
-    -webkit-transform: rotate({{ pie_end1 }}deg); /* Safari and Chrome */
-  }
-  .pie[data-value="{{ pie_end3 }}"]:BEFORE {
-    -webkit-transform: rotate({{ pie_end3 }}deg); /* Safari and Chrome */
-  }
-  .pie[data-value="{{ pie_end4 }}"]:BEFORE {
-    -webkit-transform: rotate({{ pie_end4 }}deg); /* Safari and Chrome */
-  }
+#piechart{
+    position:relative;
+    width:20px;
+    height:50px;
+    {#overflow:hidden;#}
+    left: -3%;
+}
 
   </style>
 
@@ -210,6 +128,33 @@
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   </script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['No Action', {{ no_action }}],
+  ['In Progress', {{ in_progress }}],
+  ['Completed', {{ completed }}],
+  ['Locked', {{ locked }}],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'', 'width':500, 'height':350};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+
 
 <!-- navbar -->
 <header>
@@ -271,12 +216,14 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Performance</h2>
-      <div id="pie1">
-        <div class="pie" data-start="{{ pie_start1 }}" data-value="{{ pie_end1 }}"></div>
-        <div class="pie highlight" data-start="{{ pie_start2 }}" data-value="{{ pie_end2 }}"></div>
-        <div class="pie" data-start="{{pie_start3 }}" data-value="{{ pie_end3 }}"></div>
-        <div class="pie big" data-start="{{ pie_start4 }}" data-value="{{ pie_end4 }}"></div>
+      <div id="pie">
+{#        <div class="pie" data-start="{{ pie_start1 }}" data-value="{{ pie_end1 }}"></div>#}
+{#        <div class="pie highlight" data-start="{{ pie_start2 }}" data-value="{{ pie_end2 }}"></div>#}
+{#        <div class="pie" data-start="{{pie_start3 }}" data-value="{{ pie_end3 }}"></div>#}
+{#        <div class="pie big" data-start="{{ pie_start4 }}" data-value="{{ pie_end4 }}"></div>#}
+        <div id="piechart"></div>
       </div>
+
 
       <div class='barcontainer'>
         <!-- <div class='barcontainerheader'>
@@ -308,12 +255,12 @@
         </div>
       </div>
       <br><br>
-      <div id="index1">
-        <input type="text" id="box1"> No action<br>
-        <input type="text" id="box2"> In Progress<br>
-        <input type="text" id="box3"> Completed<br>
-        <input type="text" id="box4"> Locked<br>
-      </div>
+{#      <div id="index1">#}
+{#        <input type="text" id="box1"> No action<br>#}
+{#        <input type="text" id="box2"> In Progress<br>#}
+{#        <input type="text" id="box3"> Completed<br>#}
+{#        <input type="text" id="box4"> Locked<br>#}
+{#      </div>#}
       <h2 id="contri1">Details: </h2>
       <h3>Due Date: 12/11/2017</h3>
       <table style="width:100%" id="coffeetable">

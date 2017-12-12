@@ -12,7 +12,7 @@ body{
   margin-left: 5%;
   margin-top: -10%;
 }
-.barcontainer {
+/* .barcontainer {
   position: relative;
   border: 3px solid black;
   border-radius: 5px 5px 0 0;
@@ -23,9 +23,9 @@ body{
   min-width: 28%;
   max-width: 55%;
   z-index: 1;
-}
+} */
 
-.barcontainerheader {
+/* .barcontainerheader {
   display: inline;
   position: absolute;
   width: 100%;
@@ -38,7 +38,7 @@ body{
   text-align: center;
   text-shadow: 2px 2px 0 black;
   z-index: 0;
-}
+} */
 
 .bar {
   position: absolute;
@@ -257,7 +257,7 @@ border-radius: 2px;
   width: 400px;
   float:left;
   margin-left: 2%;
-  min-height:400px;
+  min-height:180px;
   background-color:white;
 }
 
@@ -354,17 +354,7 @@ border-radius: 2px;
 .toHideContainer {
     padding: 0 25px 0 30px;
 }
-#myprogdetail1_div
-{
-  border-style: solid;
-  border-color: grey;
-  border-width: medium;
-  min-width: 400px;
-  margin-right: 30px;
-  margin-top: 200px;
-  margin-bottom: 200px;
-  margin-left: 450px;
-}
+
 #tasktitle
 {
   margin-top: -2%;
@@ -495,9 +485,8 @@ border-radius: 2px;
   margin-top: 200px;
   background-color: #f2ffe6;
 }
-#myprogdetail1
+.dashdetail
 {
-  width: 100px;
   font-family: Lucida Handwriting;
   font-size: 20px;
   color: white;
@@ -552,11 +541,12 @@ border-radius: 2px;
 }
 #myh1
 {
+  margin-left:100px;
   color:black;
   font-size: 50px;
   background-color: inherit;
 }
-#myprog
+.myprog
 {
   color:#008000;
 }
@@ -936,7 +926,7 @@ input#tempnamenew3
   float:left;
   min-height:350px;
   color: Black;
-  margin-left: 60px;
+  margin-left: 300px;
   margin-right: 30px;
   margin-top: 10px;
   background-image: url('newtemplate3.jpg');
@@ -1057,7 +1047,7 @@ input#tempnamenew3
 #steps_home_dashBoard2{
   width: 370px;
   float:left;
-  min-height:300px;
+  min-height:200px;
   color: #e6ffe6;
   margin-top: 0px;
   text-align: center;
