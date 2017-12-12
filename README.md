@@ -15,5 +15,10 @@ Architecture - MTV
 2. Templates (apps/first_app/templates): are served in their complete form to the client with all the html template files. Images and css stylesheets are located in apps/first_app/static folder.
 3. Views (apps/first_app/views.py): get the right data for the right route delivered in the right form. Views handle the data we deliver to the user to view. Routes file which lists urls and the corresponding functions in the vews to run is located at apps/first_app/urls.py.
 
+Features
+1. The user can create a new checklist for the process or select a sample checklist.
+2. The user can assign checklist tasks to team members.
+3. The user can track the progress of the checklist and the work completed by each person to which the checklist is assigned.
+4. A statistics and analysis report of the checklist is visible to the user who has created the checklist.
 
 
