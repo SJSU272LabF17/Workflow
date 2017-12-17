@@ -1,7 +1,9 @@
 # Workflow Automation App
-A web app built with Django on the server which provides automatic workflow and actions in a business process.
+A web app built with Django and SQLite which provides automatic workflow and actions in a business process.
 
-Instructions
+Deployed on AWS with public IP: http://18.221.243.216:8000/
+
+Instructions of Running in Local:
 
 1. Make sure Python(Python 2 >=2.7.9 or Python 3 >=3.4) is installed.
 2. In terminal, cd to app root folder where requirements.txt is located.
@@ -29,9 +31,6 @@ Features
 2. The user can assign checklist tasks to team members.
 3. The user can track the progress of the checklist and the work completed by each person to which the checklist is assigned.
 4. A statistics and analysis report of the checklist is visible to the user who has created the checklist.
-
-
-
 
 Contributors
 
